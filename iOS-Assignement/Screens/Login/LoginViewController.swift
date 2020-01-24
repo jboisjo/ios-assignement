@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import GoogleSignIn
 
-class LoginViewController: BaseViewController<LoginView> {
+class LoginViewController: BaseViewController<UIView> {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+    }
     
     
 }

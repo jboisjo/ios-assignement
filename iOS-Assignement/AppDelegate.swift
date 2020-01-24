@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         let rootViewController = self.window!.rootViewController as! UINavigationController
         rootViewController.setNavigationBarHidden(true, animated: false)
-        rootViewController.pushViewController(ViewController(), animated: true)
+        rootViewController.pushViewController(LoginViewController(), animated: true)
         
         self.window!.makeKeyAndVisible()
         

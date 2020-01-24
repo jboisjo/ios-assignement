@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3491642423DA5D8C00930411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491642323DA5D8C00930411 /* AppDelegate.swift */; };
-		3491642823DA5D8C00930411 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491642723DA5D8C00930411 /* ViewController.swift */; };
 		3491642B23DA5D8C00930411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3491642923DA5D8C00930411 /* Main.storyboard */; };
 		3491642D23DA5D8C00930411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3491642C23DA5D8C00930411 /* Assets.xcassets */; };
 		3491643023DA5D8C00930411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3491642E23DA5D8C00930411 /* LaunchScreen.storyboard */; };
@@ -25,6 +24,10 @@
 		3491646923DA695A00930411 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646823DA695A00930411 /* LoginViewController.swift */; };
 		3491646B23DA696800930411 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646A23DA696800930411 /* LoginViewModel.swift */; };
 		3491646E23DA698F00930411 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646D23DA698F00930411 /* NibView.swift */; };
+		3491647223DA756B00930411 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647123DA756B00930411 /* NetworkManager.swift */; };
+		3491647523DA758E00930411 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647423DA758E00930411 /* RepositoryManager.swift */; };
+		3491647723DA75C400930411 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647623DA75C400930411 /* Playlist.swift */; };
+		3491647923DA764200930411 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647823DA764200930411 /* PlaylistDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +43,6 @@
 /* Begin PBXFileReference section */
 		3491642023DA5D8C00930411 /* iOS-Assignement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Assignement.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3491642323DA5D8C00930411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3491642723DA5D8C00930411 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3491642A23DA5D8C00930411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3491642C23DA5D8C00930411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3491642F23DA5D8C00930411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,10 @@
 		3491646823DA695A00930411 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3491646A23DA696800930411 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3491646D23DA698F00930411 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		3491647123DA756B00930411 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3491647423DA758E00930411 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		3491647623DA75C400930411 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		3491647823DA764200930411 /* PlaylistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				3491644623DA5DC900930411 /* Repository */,
-				3491644523DA5D9C00930411 /* Services */,
 				3491644823DA5DDC00930411 /* Screens */,
 				3491642323DA5D8C00930411 /* AppDelegate.swift */,
 				3491642923DA5D8C00930411 /* Main.storyboard */,
@@ -130,16 +135,10 @@
 			path = "iOS-AssignementTests";
 			sourceTree = "<group>";
 		};
-		3491644523DA5D9C00930411 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		3491644623DA5DC900930411 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				3491647323DA758000930411 /* Network */,
 				3491644723DA5DD200930411 /* Entity */,
 			);
 			path = Repository;
@@ -148,6 +147,8 @@
 		3491644723DA5DD200930411 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				3491647623DA75C400930411 /* Playlist.swift */,
+				3491647823DA764200930411 /* PlaylistDetail.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -159,7 +160,6 @@
 				3491646523DA692600930411 /* Login */,
 				3491646F23DA69AE00930411 /* List */,
 				3491647023DA69CA00930411 /* Detail */,
-				3491642723DA5D8C00930411 /* ViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -208,6 +208,15 @@
 			children = (
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		3491647323DA758000930411 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3491647123DA756B00930411 /* NetworkManager.swift */,
+				3491647423DA758E00930411 /* RepositoryManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,13 +325,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3491647523DA758E00930411 /* RepositoryManager.swift in Sources */,
 				3491646E23DA698F00930411 /* NibView.swift in Sources */,
-				3491642823DA5D8C00930411 /* ViewController.swift in Sources */,
+				3491647923DA764200930411 /* PlaylistDetail.swift in Sources */,
 				3491642423DA5D8C00930411 /* AppDelegate.swift in Sources */,
 				3491646B23DA696800930411 /* LoginViewModel.swift in Sources */,
+				3491647223DA756B00930411 /* NetworkManager.swift in Sources */,
 				3491646723DA695100930411 /* LoginView.swift in Sources */,
 				3491646923DA695A00930411 /* LoginViewController.swift in Sources */,
 				3491646423DA66DF00930411 /* BaseViewController.swift in Sources */,
+				3491647723DA75C400930411 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
