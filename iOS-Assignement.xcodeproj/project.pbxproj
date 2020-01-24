@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		3491642423DA5D8C00930411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491642323DA5D8C00930411 /* AppDelegate.swift */; };
-		3491642623DA5D8C00930411 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491642523DA5D8C00930411 /* SceneDelegate.swift */; };
 		3491642823DA5D8C00930411 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491642723DA5D8C00930411 /* ViewController.swift */; };
 		3491642B23DA5D8C00930411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3491642923DA5D8C00930411 /* Main.storyboard */; };
 		3491642D23DA5D8C00930411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3491642C23DA5D8C00930411 /* Assets.xcassets */; };
 		3491643023DA5D8C00930411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3491642E23DA5D8C00930411 /* LaunchScreen.storyboard */; };
 		3491643B23DA5D8D00930411 /* iOS_AssignementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491643A23DA5D8D00930411 /* iOS_AssignementTests.swift */; };
+		3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491644F23DA5F8000930411 /* LocalAuthentication.framework */; };
+		3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645123DA5F8600930411 /* SafariServices.framework */; };
+		3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645323DA5F8D00930411 /* AuthenticationServices.framework */; };
+		3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645523DA5F9500930411 /* SystemConfiguration.framework */; };
+		3491645B23DA638D00930411 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3491645A23DA638D00930411 /* GoogleSignIn.bundle */; };
+		3491645D23DA645500930411 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645C23DA645500930411 /* GoogleSignIn.framework */; };
+		3491646123DA646100930411 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491646023DA646100930411 /* GoogleSignInDependencies.framework */; };
+		3491646423DA66DF00930411 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646323DA66DF00930411 /* BaseViewController.swift */; };
+		3491646723DA695100930411 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646623DA695100930411 /* LoginView.swift */; };
+		3491646923DA695A00930411 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646823DA695A00930411 /* LoginViewController.swift */; };
+		3491646B23DA696800930411 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646A23DA696800930411 /* LoginViewModel.swift */; };
+		3491646E23DA698F00930411 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646D23DA698F00930411 /* NibView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +40,6 @@
 /* Begin PBXFileReference section */
 		3491642023DA5D8C00930411 /* iOS-Assignement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Assignement.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3491642323DA5D8C00930411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3491642523DA5D8C00930411 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3491642723DA5D8C00930411 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3491642A23DA5D8C00930411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3491642C23DA5D8C00930411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +48,18 @@
 		3491643623DA5D8D00930411 /* iOS-AssignementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-AssignementTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3491643A23DA5D8D00930411 /* iOS_AssignementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_AssignementTests.swift; sourceTree = "<group>"; };
 		3491643C23DA5D8D00930411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3491644F23DA5F8000930411 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		3491645123DA5F8600930411 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		3491645323DA5F8D00930411 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		3491645523DA5F9500930411 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3491645A23DA638D00930411 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = "iOS-Assignement/GoogleSignIn.bundle"; sourceTree = "<group>"; };
+		3491645C23DA645500930411 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = "iOS-Assignement/GoogleSignIn.framework"; sourceTree = "<group>"; };
+		3491646023DA646100930411 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignInDependencies.framework; path = "iOS-Assignement/GoogleSignInDependencies.framework"; sourceTree = "<group>"; };
+		3491646323DA66DF00930411 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3491646623DA695100930411 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3491646823DA695A00930411 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3491646A23DA696800930411 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3491646D23DA698F00930411 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +67,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3491646123DA646100930411 /* GoogleSignInDependencies.framework in Frameworks */,
+				3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */,
+				3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */,
+				3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */,
+				3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */,
+				3491645D23DA645500930411 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +91,9 @@
 			children = (
 				3491642223DA5D8C00930411 /* iOS-Assignement */,
 				3491643923DA5D8D00930411 /* iOS-AssignementTests */,
+				3491645A23DA638D00930411 /* GoogleSignIn.bundle */,
 				3491642123DA5D8C00930411 /* Products */,
+				3491644E23DA5F7F00930411 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +109,10 @@
 		3491642223DA5D8C00930411 /* iOS-Assignement */ = {
 			isa = PBXGroup;
 			children = (
+				3491644623DA5DC900930411 /* Repository */,
+				3491644523DA5D9C00930411 /* Services */,
+				3491644823DA5DDC00930411 /* Screens */,
 				3491642323DA5D8C00930411 /* AppDelegate.swift */,
-				3491642523DA5D8C00930411 /* SceneDelegate.swift */,
-				3491642723DA5D8C00930411 /* ViewController.swift */,
 				3491642923DA5D8C00930411 /* Main.storyboard */,
 				3491642C23DA5D8C00930411 /* Assets.xcassets */,
 				3491642E23DA5D8C00930411 /* LaunchScreen.storyboard */,
@@ -97,6 +128,86 @@
 				3491643C23DA5D8D00930411 /* Info.plist */,
 			);
 			path = "iOS-AssignementTests";
+			sourceTree = "<group>";
+		};
+		3491644523DA5D9C00930411 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3491644623DA5DC900930411 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3491644723DA5DD200930411 /* Entity */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		3491644723DA5DD200930411 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		3491644823DA5DDC00930411 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3491646C23DA698100930411 /* Base */,
+				3491646523DA692600930411 /* Login */,
+				3491646F23DA69AE00930411 /* List */,
+				3491647023DA69CA00930411 /* Detail */,
+				3491642723DA5D8C00930411 /* ViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3491644E23DA5F7F00930411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3491646023DA646100930411 /* GoogleSignInDependencies.framework */,
+				3491645C23DA645500930411 /* GoogleSignIn.framework */,
+				3491645523DA5F9500930411 /* SystemConfiguration.framework */,
+				3491645323DA5F8D00930411 /* AuthenticationServices.framework */,
+				3491645123DA5F8600930411 /* SafariServices.framework */,
+				3491644F23DA5F8000930411 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3491646523DA692600930411 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3491646623DA695100930411 /* LoginView.swift */,
+				3491646823DA695A00930411 /* LoginViewController.swift */,
+				3491646A23DA696800930411 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3491646C23DA698100930411 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3491646323DA66DF00930411 /* BaseViewController.swift */,
+				3491646D23DA698F00930411 /* NibView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3491646F23DA69AE00930411 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		3491647023DA69CA00930411 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +226,8 @@
 			dependencies = (
 			);
 			name = "iOS-Assignement";
+			packageProductDependencies = (
+			);
 			productName = "iOS-Assignement";
 			productReference = 3491642023DA5D8C00930411 /* iOS-Assignement.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +278,8 @@
 				Base,
 			);
 			mainGroup = 3491641723DA5D8C00930411;
+			packageReferences = (
+			);
 			productRefGroup = 3491642123DA5D8C00930411 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,6 +297,7 @@
 			files = (
 				3491643023DA5D8C00930411 /* LaunchScreen.storyboard in Resources */,
 				3491642D23DA5D8C00930411 /* Assets.xcassets in Resources */,
+				3491645B23DA638D00930411 /* GoogleSignIn.bundle in Resources */,
 				3491642B23DA5D8C00930411 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,9 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3491646E23DA698F00930411 /* NibView.swift in Sources */,
 				3491642823DA5D8C00930411 /* ViewController.swift in Sources */,
 				3491642423DA5D8C00930411 /* AppDelegate.swift in Sources */,
-				3491642623DA5D8C00930411 /* SceneDelegate.swift in Sources */,
+				3491646B23DA696800930411 /* LoginViewModel.swift in Sources */,
+				3491646723DA695100930411 /* LoginView.swift in Sources */,
+				3491646923DA695A00930411 /* LoginViewController.swift in Sources */,
+				3491646423DA66DF00930411 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +484,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5YKW89G53X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOS-Assignement",
+				);
 				INFOPLIST_FILE = "iOS-Assignement/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jboisjoli.iOS-Assignement";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -382,10 +511,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5YKW89G53X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOS-Assignement",
+				);
 				INFOPLIST_FILE = "iOS-Assignement/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jboisjoli.iOS-Assignement";
 				PRODUCT_NAME = "$(TARGET_NAME)";
