@@ -13,6 +13,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     
     var viewModel: DetailViewModel!
     var items: [Items]?
+    var videoItem: [String: Object?]? = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +39,28 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
             }
         }
         
-        
         viewModel = DetailViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
-        viewModel.getUserFromRepository(success: { (item) in
-            self.items = item?.items
+        viewModel.getUserFromRepository(success: { [weak self] (item) in
+            self?.items = item?.items
+            item?.items?.forEach({ [weak self] (items) in
+                if let videoId = items.contentDetails?.videoId {
+                    self?.viewModel.getVideoDetailFromRepository(videoId: videoId, success: { [weak self] (result) in
+                        self?.videoItem?[videoId] = result
+                        
+                        if self?.items?.count == self?.videoItem?.count {
+                            DispatchQueue.main.async {
+                                self?.viewLayout.tracksTableView.reloadData()
+                            }
+                        }
+                        
+                    }) { (error) in
+                        
+                    }
+                }
+                
+            })
             
-            DispatchQueue.main.async {
-                self.viewLayout.tracksTableView.reloadData()
-            }
+            
         }) { (error) in
             print(error as Any)
         }
@@ -78,10 +93,22 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = viewLayout.tracksTableView.dequeueReusableCell(withIdentifier: "detailCellIdentifier", for: indexPath) as! DetailViewTableViewCell
         
-        cell.lblTitle.text = self.items?[indexPath.row].snippet?.title
+        let selectedItem = self.items?[indexPath.row]
         
-        if let count = self.items?[indexPath.row].contentDetails?.itemCount {
-            cell.lblTrackNb.text = String(describing: "\(count) songs")
+        if let videoItems = self.videoItem,
+            let selectedVideoId = selectedItem?.contentDetails?.videoId,
+            let valueFromDictionnary = videoItems[selectedVideoId],
+            let value = valueFromDictionnary,
+            let item = value.items {
+            
+            if item.count > 0 {
+                cell.lblTrackNb.text = item[0].snippet?.channelTitle
+            } else {
+                 cell.lblTrackNb.text = "Unknown"
+            }
+            
+        } else {
+            cell.lblTrackNb.text = "Unknown"
         }
         
         let image = self.items?[indexPath.row].snippet?.thumbnails?.standard?.url //to move in extension or function to clean.
@@ -96,6 +123,8 @@ extension DetailViewController: UITableViewDataSource {
                 }
             }
         }
+        
+        cell.lblTitle.text = selectedItem?.snippet?.title
         
         return cell
     }

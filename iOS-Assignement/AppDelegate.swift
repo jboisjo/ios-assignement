@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         
-        GIDSignIn.sharedInstance().clientID = "893464616073-128t1drsrctj70uhvm2cmavhcsaaa9ms.apps.googleusercontent.com" //to put in configFile
+        GIDSignIn.sharedInstance().clientID = "175345383373-vsnr0g0nh9ruk4vrt9utn58qnoeja9b8.apps.googleusercontent.com" //to put in configFile
         
         return true
     }
