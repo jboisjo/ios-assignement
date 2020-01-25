@@ -16,8 +16,6 @@
 		3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645123DA5F8600930411 /* SafariServices.framework */; };
 		3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645323DA5F8D00930411 /* AuthenticationServices.framework */; };
 		3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645523DA5F9500930411 /* SystemConfiguration.framework */; };
-		3491645D23DA645500930411 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645C23DA645500930411 /* GoogleSignIn.framework */; };
-		3491646123DA646100930411 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491646023DA646100930411 /* GoogleSignInDependencies.framework */; };
 		3491646423DA66DF00930411 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646323DA66DF00930411 /* BaseViewController.swift */; };
 		3491646723DA695100930411 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646623DA695100930411 /* LoginView.swift */; };
 		3491646923DA695A00930411 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646823DA695A00930411 /* LoginViewController.swift */; };
@@ -124,14 +122,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A184E123DBBEEE00A464DD /* RxSwift in Frameworks */,
-				3491646123DA646100930411 /* GoogleSignInDependencies.framework in Frameworks */,
 				34A184E323DBBEEE00A464DD /* RxCocoa in Frameworks */,
 				3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */,
 				3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */,
 				3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */,
 				3491647C23DA77D600930411 /* SQLite in Frameworks */,
 				3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */,
-				3491645D23DA645500930411 /* GoogleSignIn.framework in Frameworks */,
 				C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

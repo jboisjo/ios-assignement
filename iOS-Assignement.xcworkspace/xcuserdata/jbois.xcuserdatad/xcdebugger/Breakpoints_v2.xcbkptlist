@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "25EAC663-3AA3-470B-9DCD-2F256E8D126D"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E76DEC4-0DC4-44A6-B905-D8B102D052EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D7F5E2F-6775-4E9E-802D-9E5993957BA0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D7F5E2F-6775-4E9E-802D-9E5993957BA0 - 46499d2c1cb959ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Assignement.DetailViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "iOS-Assignement"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jbois/Desktop/iOS-Assignement/iOS-Assignement/Screens/Detail/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "848">
+               </Location>
+               <Location
+                  uuid = "0D7F5E2F-6775-4E9E-802D-9E5993957BA0 - 247b60e0f2ebf3ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;iOS_Assignement.Object&gt;) -&gt; () in iOS_Assignement.DetailViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "iOS-Assignement"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jbois/Desktop/iOS-Assignement/iOS-Assignement/Screens/Detail/DetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64803E22-EBBA-43ED-96DA-1CF9EA9D00E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D205F7B-2348-4F6B-97DD-5E21742293FF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7D205F7B-2348-4F6B-97DD-5E21742293FF - 95b3e58a9df78df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Assignement.DetailViewModel.getUserFromRepository(success: (Swift.Optional&lt;iOS_Assignement.Object&gt;) -&gt; (), failure: (Swift.Optional&lt;iOS_Assignement.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-Assignement"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jbois/Desktop/iOS-Assignement/iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1847">
+               </Location>
+               <Location
+                  uuid = "7D205F7B-2348-4F6B-97DD-5E21742293FF - c445de5b5e2e38ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (iOS_Assignement.Object) -&gt; () in iOS_Assignement.DetailViewModel.getUserFromRepository(success: (Swift.Optional&lt;iOS_Assignement.Object&gt;) -&gt; (), failure: (Swift.Optional&lt;iOS_Assignement.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-Assignement"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jbois/Desktop/iOS-Assignement/iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86C46104-697E-4B0D-AF04-C6801A0D6F4E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC8B6A25-4E60-4B19-BEAF-28470C8E1FC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEBC2AD5-AD26-48CB-A91C-7659178CEFA2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FEBC2AD5-AD26-48CB-A91C-7659178CEFA2 - c445de5b5e2e38ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (iOS_Assignement.Object) -&gt; () in iOS_Assignement.DetailViewModel.getUserFromRepository(success: (Swift.Optional&lt;iOS_Assignement.Object&gt;) -&gt; (), failure: (Swift.Optional&lt;iOS_Assignement.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-Assignement"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jbois/Desktop/iOS-Assignement/iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "FEBC2AD5-AD26-48CB-A91C-7659178CEFA2 - 14a1b2e8d1f8f7da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;iOS_Assignement.NetworkError&gt;) -&gt; () in iOS_Assignement.DetailViewModel.getUserFromRepository(success: (Swift.Optional&lt;iOS_Assignement.Object&gt;) -&gt; (), failure: (Swift.Optional&lt;iOS_Assignement.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iOS-Assignement"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jbois/Desktop/iOS-Assignement/iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "18">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "723AAA4B-141D-4E44-A51F-4D19624F5786"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDED02A3-141F-47C9-9F4B-EB8A68DE5112"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-Assignement/Screens/Detail/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getUserFromRepository(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
