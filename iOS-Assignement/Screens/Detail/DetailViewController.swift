@@ -20,8 +20,8 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "1F2124")
+        
         
         if let title = UserDefaults.standard.string(forKey: "selectedPlaylistTitle"),
             let tracks = UserDefaults.standard.string(forKey: "selectedPlaylistTracks")  {

@@ -23,13 +23,11 @@
 		3491646E23DA698F00930411 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646D23DA698F00930411 /* NibView.swift */; };
 		3491647223DA756B00930411 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647123DA756B00930411 /* NetworkManager.swift */; };
 		3491647523DA758E00930411 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647423DA758E00930411 /* RepositoryManager.swift */; };
-		3491647723DA75C400930411 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647623DA75C400930411 /* Playlist.swift */; };
-		3491647923DA764200930411 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647823DA764200930411 /* PlaylistDetail.swift */; };
 		3491647C23DA77D600930411 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 3491647B23DA77D600930411 /* SQLite */; };
 		3491647E23DA7FB600930411 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647D23DA7FB600930411 /* NetworkError.swift */; };
 		3491648123DA811D00930411 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491648023DA811D00930411 /* URLSessionExtension.swift */; };
 		3491648523DA88B300930411 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3491648423DA88B300930411 /* LoginView.xib */; };
-		34A184CC23DBB56B00A464DD /* LoginViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184CB23DBB56B00A464DD /* LoginViewService.swift */; };
+		34A184CC23DBB56B00A464DD /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184CB23DBB56B00A464DD /* NetworkAPI.swift */; };
 		34A184CE23DBB78100A464DD /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184CD23DBB78100A464DD /* Items.swift */; };
 		34A184D023DBB83B00A464DD /* ContentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184CF23DBB83B00A464DD /* ContentDetails.swift */; };
 		34A184D223DBB86400A464DD /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184D123DBB86400A464DD /* Snippet.swift */; };
@@ -39,8 +37,6 @@
 		34A184DA23DBBC7400A464DD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184D923DBBC7400A464DD /* ListView.swift */; };
 		34A184DC23DBBC8000A464DD /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184DB23DBBC8000A464DD /* ListView.xib */; };
 		34A184DF23DBBEEE00A464DD /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 34A184DE23DBBEEE00A464DD /* RxTest */; };
-		34A184E123DBBEEE00A464DD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 34A184E023DBBEEE00A464DD /* RxSwift */; };
-		34A184E323DBBEEE00A464DD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 34A184E223DBBEEE00A464DD /* RxCocoa */; };
 		34A184E623DBC52800A464DD /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184E423DBC52800A464DD /* ListViewCell.swift */; };
 		34A184E723DBC52800A464DD /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184E523DBC52800A464DD /* ListViewCell.xib */; };
 		34A184EA23DBDCE800A464DD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184E923DBDCE800A464DD /* DetailViewController.swift */; };
@@ -49,6 +45,7 @@
 		34A184F023DBDD1F00A464DD /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184EF23DBDD1F00A464DD /* DetailView.xib */; };
 		34A184F323DBEDC600A464DD /* DetailViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184F123DBEDC600A464DD /* DetailViewTableViewCell.swift */; };
 		34A184F423DBEDC600A464DD /* DetailViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184F223DBEDC600A464DD /* DetailViewTableViewCell.xib */; };
+		34A184F723DCECC600A464DD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184F623DCECC600A464DD /* UIColorExtension.swift */; };
 		8F8ACB40C75624216197C584 /* Pods_iOS_AssignementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */; };
 		C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */; };
 /* End PBXBuildFile section */
@@ -86,12 +83,10 @@
 		3491646D23DA698F00930411 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		3491647123DA756B00930411 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3491647423DA758E00930411 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
-		3491647623DA75C400930411 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
-		3491647823DA764200930411 /* PlaylistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
 		3491647D23DA7FB600930411 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		3491648023DA811D00930411 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 		3491648423DA88B300930411 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
-		34A184CB23DBB56B00A464DD /* LoginViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewService.swift; sourceTree = "<group>"; };
+		34A184CB23DBB56B00A464DD /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		34A184CD23DBB78100A464DD /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		34A184CF23DBB83B00A464DD /* ContentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetails.swift; sourceTree = "<group>"; };
 		34A184D123DBB86400A464DD /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
@@ -108,6 +103,7 @@
 		34A184EF23DBDD1F00A464DD /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		34A184F123DBEDC600A464DD /* DetailViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTableViewCell.swift; sourceTree = "<group>"; };
 		34A184F223DBEDC600A464DD /* DetailViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewTableViewCell.xib; sourceTree = "<group>"; };
+		34A184F623DCECC600A464DD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_AssignementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Assignement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		505E91CB56B1AB53CAE215A9 /* Pods-iOS-Assignement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Assignement.release.xcconfig"; path = "Target Support Files/Pods-iOS-Assignement/Pods-iOS-Assignement.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,8 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34A184E123DBBEEE00A464DD /* RxSwift in Frameworks */,
-				34A184E323DBBEEE00A464DD /* RxCocoa in Frameworks */,
 				3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */,
 				3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */,
 				3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */,
@@ -213,10 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				34A184CD23DBB78100A464DD /* Items.swift */,
-				3491647623DA75C400930411 /* Playlist.swift */,
 				34A184CF23DBB83B00A464DD /* ContentDetails.swift */,
 				34A184D123DBB86400A464DD /* Snippet.swift */,
-				3491647823DA764200930411 /* PlaylistDetail.swift */,
 				34A184D323DBB8AB00A464DD /* Thumbnails.swift */,
 			);
 			path = Entity;
@@ -306,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				3491648023DA811D00930411 /* URLSessionExtension.swift */,
+				34A184F623DCECC600A464DD /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -313,7 +306,7 @@
 		34A184CA23DBB55A00A464DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				34A184CB23DBB56B00A464DD /* LoginViewService.swift */,
+				34A184CB23DBB56B00A464DD /* NetworkAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -357,8 +350,6 @@
 			name = "iOS-Assignement";
 			packageProductDependencies = (
 				3491647B23DA77D600930411 /* SQLite */,
-				34A184E023DBBEEE00A464DD /* RxSwift */,
-				34A184E223DBBEEE00A464DD /* RxCocoa */,
 			);
 			productName = "iOS-Assignement";
 			productReference = 3491642023DA5D8C00930411 /* iOS-Assignement.app */;
@@ -543,9 +534,8 @@
 				34A184EE23DBDD1700A464DD /* DetailView.swift in Sources */,
 				3491647523DA758E00930411 /* RepositoryManager.swift in Sources */,
 				34A184D423DBB8AB00A464DD /* Thumbnails.swift in Sources */,
-				34A184CC23DBB56B00A464DD /* LoginViewService.swift in Sources */,
+				34A184CC23DBB56B00A464DD /* NetworkAPI.swift in Sources */,
 				3491646E23DA698F00930411 /* NibView.swift in Sources */,
-				3491647923DA764200930411 /* PlaylistDetail.swift in Sources */,
 				3491642423DA5D8C00930411 /* AppDelegate.swift in Sources */,
 				3491646B23DA696800930411 /* LoginViewModel.swift in Sources */,
 				3491647223DA756B00930411 /* NetworkManager.swift in Sources */,
@@ -558,12 +548,12 @@
 				34A184DA23DBBC7400A464DD /* ListView.swift in Sources */,
 				34A184E623DBC52800A464DD /* ListViewCell.swift in Sources */,
 				34A184D223DBB86400A464DD /* Snippet.swift in Sources */,
+				34A184F723DCECC600A464DD /* UIColorExtension.swift in Sources */,
 				3491648123DA811D00930411 /* URLSessionExtension.swift in Sources */,
 				34A184D823DBBC6C00A464DD /* ListViewModel.swift in Sources */,
 				34A184D623DBBC6200A464DD /* ListViewController.swift in Sources */,
 				3491646423DA66DF00930411 /* BaseViewController.swift in Sources */,
 				3491647E23DA7FB600930411 /* NetworkError.swift in Sources */,
-				3491647723DA75C400930411 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,16 +872,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 34A184DD23DBBEEE00A464DD /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
-		};
-		34A184E023DBBEEE00A464DD /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34A184DD23DBBEEE00A464DD /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		34A184E223DBBEEE00A464DD /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34A184DD23DBBEEE00A464DD /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

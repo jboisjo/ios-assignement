@@ -6,18 +6,9 @@
 //  Copyright © 2020 Jérémie Boisjoli. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-protocol LoginViewDelegate: class {
-    func actionElement()
-}
-
 class LoginView: NibView {
-    weak var delegate: LoginViewDelegate?
-    
-    @IBOutlet weak var getlist: UIButton!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -25,9 +16,4 @@ class LoginView: NibView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    @IBAction func getlist(_ sender: UIButton) {
-        delegate?.actionElement()
-    }
-    
 }

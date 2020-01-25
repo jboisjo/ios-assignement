@@ -34,22 +34,6 @@ class BaseViewController<T: UIView>: UIViewController {
         setupAccessibility()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-          return .lightContent
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-    
     // MARK: - Setup
     open func setupView() {
         /// Abstract method. Subclasses should override this method to setup their view.
@@ -60,12 +44,22 @@ class BaseViewController<T: UIView>: UIViewController {
     }
 }
 
-extension BaseViewController{
-    func showErrorAlert(alertMessage: String) {
-        
-        let alert = UIAlertController(title: "Check-In App", message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
-     }
+extension BaseViewController {
+    func showAlert(title : String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        let ok = UIAlertAction(
+            title: "OK",
+            style: UIAlertAction.Style.default,
+            handler: nil
+        )
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
 

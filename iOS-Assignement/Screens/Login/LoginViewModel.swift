@@ -6,26 +6,28 @@
 //  Copyright © 2020 Jérémie Boisjoli. All rights reserved.
 //
 
-//https://jsonplaceholder.typicode.com/todos/1
-
 import Foundation
 
 class LoginViewModel {
     
     //MARK: Variable
-    let repositoryManagerDelegate: RepositoryManagerDelegate
+    private let userDefault: UserDefaults
+    private let accessTokenKey = "accessTokenKey"
     
     //MARK: Init
-    init(repositoryManagerDelegate: RepositoryManagerDelegate) {
-        self.repositoryManagerDelegate = repositoryManagerDelegate
+    init(userDefault: UserDefaults) {
+        self.userDefault = userDefault
     }
     
     //MARK: - Function
-    func getUserFromRepository() {
-        repositoryManagerDelegate.getRepository(type: Object.self, LoginViewService.baseUrl + LoginViewService.getPlaylistUrl, success: { (response) in
-        }) { (error) in
-            //print(error as Any)
-        }
+    func getAccessTokenKey(key: String) -> String {
+        let value = userDefault.string(forKey: key)
+        guard let returnValue = value else { return "" }
+        
+        return returnValue
     }
     
+    func setAccessTokenKey(value: String) {
+        UserDefaults.standard.set(value, forKey: accessTokenKey)
+    }
 }

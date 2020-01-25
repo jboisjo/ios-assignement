@@ -14,28 +14,32 @@ final class ListViewModel {
     //MARK: Variable
     let repositoryManagerDelegate: RepositoryManagerDelegate
     
-    //MARK: Init
+    //MARK: - Init
     init(repositoryManagerDelegate: RepositoryManagerDelegate) {
         self.repositoryManagerDelegate = repositoryManagerDelegate
     }
     
     //MARK: - Function
-    func getUserFromRepository(nextPageToken: String? = nil,
-                               success: @escaping (Object?) -> Void,
-                               failure: @escaping (NetworkError?) -> Void) {
+    func getPlaylistsFromRepository(success: @escaping (Object?) -> Void,
+                                    failure: @escaping (NetworkError?) -> Void) {
         
-        var url = ""
-        
-        if let token = nextPageToken {
-            url = LoginViewService.baseUrl + LoginViewService.getPlaylistUrl + "&pageToken=\(token)" + "&key=\(LoginViewService.apiKey)"
-        } else {
-            url = LoginViewService.baseUrl + LoginViewService.getPlaylistUrl + "&key=\(LoginViewService.apiKey)"
-        }
-        
+        let url = NetworkAPI.baseUrl + NetworkAPI.getPlaylistUrl + "&key=\(NetworkAPI.apiKey)"
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
             success(response)
         }) { (error) in
-            //print(error as Any)
+            failure(error)
+        }
+    }
+    
+    func getNextPlaylistsFromRepository(nextPageToken: String,
+                                        success: @escaping (Object?) -> Void,
+                                        failure: @escaping (NetworkError?) -> Void) {
+        
+        let url = NetworkAPI.baseUrl + NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)" + "&key=\(NetworkAPI.apiKey)"
+        repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
+            success(response)})
+        { (error) in
+            failure(error)
         }
     }
     

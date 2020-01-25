@@ -11,30 +11,32 @@ import UIKit
 
 class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
 
+    //MARK: Variable
     var viewModel: ListViewModel!
     var items: [Items]?
     var fetchMore = false
     var nextPageToken: String!
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = ListViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
   
-        viewLayout.navigationBar.topItem?.title = "iOS-Assignement"
         setupTableView()
-        getRepositoryFromVM()
+        getPlaylistsFromRepository()
+        setNavigationBarProperties()
     }
     
-    func getRepositoryFromVM() {
-        viewModel.getUserFromRepository(success: { [weak self] (response) in
-            self?.nextPageToken = response?.nextPageToken
-            self?.items = response?.items
-                   
-            DispatchQueue.main.async {
-                self?.viewLayout.listTableView.reloadData()}}) { (error) in }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
+    //MARK: - Functions
     func setupTableView() {
         viewLayout.listTableView.delegate = self
         viewLayout.listTableView.dataSource = self
@@ -43,6 +45,58 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
         viewLayout.listTableView.register(nib, forCellReuseIdentifier: "cellIdentifier")
     }
     
+    private func setNavigationBarProperties() {
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+        ]
+
+        UINavigationBar.appearance().titleTextAttributes = attrs
+        
+        self.title = "Home"
+        self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "1F2124")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    //MARK: - Binding
+    func getPlaylistsFromRepository() {
+        viewModel.getPlaylistsFromRepository(success: { [weak self] (response) in
+            self?.nextPageToken = response?.nextPageToken
+            self?.items = response?.items
+                   
+            DispatchQueue.main.async {
+                self?.viewLayout.listTableView.reloadData()
+            }
+            
+        }) { [weak self] (error) in
+            self?.showAlert(title: "Error", message: "Unable to fetch data from the server")
+        }
+    }
+    
+    func getNextPlaylistsFromRepository() {
+        if let token = self.nextPageToken {
+            viewModel.getNextPlaylistsFromRepository(nextPageToken: token, success: { [weak self] (response) in
+                self?.nextPageToken = response?.nextPageToken
+                    if let items = response?.items {
+                        items.forEach( { self?.items?.append($0)})
+                    }
+            
+                    DispatchQueue.main.async {
+                        self?.fetchMore = false
+                        self?.viewLayout.listTableView.reloadData()
+                    }
+                
+            }) { [weak self] (error) in
+                self?.showAlert(title: "Error", message: "Unable to fetch data from the server")
+            }
+        }
+    }
+    
+    func beganBatchFetch() {
+        fetchMore = true
+        getNextPlaylistsFromRepository()
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -51,32 +105,11 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
             if !fetchMore {
                 beganBatchFetch()
             }
-            
         }
     }
-    
-    func beganBatchFetch() {
-        fetchMore = true
-        getRepository()
-    }
-    
-    func getRepository() {
-        if let token = self.nextPageToken {
-            viewModel.getUserFromRepository(nextPageToken: token, success: { [weak self] (response) in
-                    self?.nextPageToken = response?.nextPageToken
-                         if let items = response?.items {
-                            items.forEach( { self?.items?.append($0)})
-                         }
-            
-                    DispatchQueue.main.async {
-                        self?.fetchMore = false
-                        self?.viewLayout.listTableView.reloadData()}}) { (error) in }
-                 }
-        }
-        
-        
 }
 
+//MARK: - Extensions
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items?.count ?? 0
@@ -91,14 +124,15 @@ extension ListViewController: UITableViewDataSource {
             cell.descriptionLbl.text = String(describing: "\(count) songs")
         }
         
-        let image = self.items?[indexPath.row].snippet?.thumbnails?.standard?.url //to move in extension or function to clean.
-        if let img = image, let imgURL = URL(string: img) {
+        
+        let image = self.items?[indexPath.row].snippet?.thumbnails?.standard?.url
+        if let img = image, let imgURL = URL(string: img) { //put in extension
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imgURL)
                 if let data = data {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
-                        cell.imgThumbnail.image = image
+                       cell.imgThumbnail.image = image
                     }
                 }
             }
@@ -117,7 +151,6 @@ extension ListViewController: UITableViewDataSource {
         UserDefaults.standard.set(selectedPlaylistTitle, forKey: "selectedPlaylistTitle") //cache for local
         UserDefaults.standard.set(selectedPlaylistTracks, forKey: "selectedPlaylistTracks") //cache for local
         UserDefaults.standard.set(selectedPlaylistImageUrl, forKey: "selectedPlaylistImageUrl") //cache for local
-        
         
         navigationController?.pushViewController(DetailViewController(), animated: true)
     }

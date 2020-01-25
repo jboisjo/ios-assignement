@@ -17,6 +17,5 @@ struct Object: Codable {
 struct Items: Codable {
     let id: String?
     let snippet: Snippet?
-    let contentDetails: ContentDetails?
-    
+    let contentDetails: ContentDetails?    
 }

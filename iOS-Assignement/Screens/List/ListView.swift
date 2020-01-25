@@ -17,7 +17,6 @@ class ListView: NibView {
         super.init(frame: frame)
         
         listTableView.rowHeight = 100
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

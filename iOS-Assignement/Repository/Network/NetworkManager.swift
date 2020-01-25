@@ -49,14 +49,13 @@ class NetworkManager: NetworkManagerDelegate {
             
             switch statusCode {
             case 200..<299:
-                DispatchQueue.main.async { //to update
-                    success(data)
-                }
-            default:
-                DispatchQueue.main.async { //to update
-                    print(error as Any)
-                    failure(NetworkError.forbidden)
-                }
+                success(data)
+            case 401:
+                failure(NetworkError.unauthorized)
+            case 403:
+                failure(NetworkError.forbidden)
+             default:
+                failure(NetworkError.forbidden)
             }
         }.resume()
         
