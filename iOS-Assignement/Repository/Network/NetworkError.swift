@@ -1,5 +1,5 @@
 //
-//  Playlist.swift
+//  NetworkError.swift
 //  iOS-Assignement
 //
 //  Created by Jérémie Boisjoli on 2020-01-23.
@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct Playlist: Codable {
-    let pageInfo: Int
-    let resultsPerPage: Int
-    let items: [Items]
+enum NetworkError: Error {
+    case accessTokenNotFound
+    case unableToDecode
+    case forbidden
+    case unauthorized
 }

@@ -34,6 +34,10 @@ class BaseViewController<T: UIView>: UIViewController {
         setupAccessibility()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
