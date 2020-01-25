@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListView" customModule="iOS_Assignement" customModuleProvider="target">
+            <connections>
+                <outlet property="listTableView" destination="M4S-0J-JaF" id="qEM-46-n22"/>
+                <outlet property="navigationBar" destination="GBM-iR-3EC" id="Tl7-IT-5NO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M4S-0J-JaF">
+                    <rect key="frame" x="0.0" y="79" width="414" height="817"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBM-iR-3EC">
+                    <rect key="frame" x="0.0" y="45" width="414" height="44"/>
+                    <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <items>
+                        <navigationItem title="Title" id="NPB-9q-LBP"/>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="M4S-0J-JaF" firstAttribute="top" secondItem="GBM-iR-3EC" secondAttribute="bottom" constant="-10" id="1ak-rg-LF3"/>
+                <constraint firstItem="GBM-iR-3EC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="47g-ov-Nrq"/>
+                <constraint firstAttribute="bottom" secondItem="M4S-0J-JaF" secondAttribute="bottom" id="HK8-fe-DGw"/>
+                <constraint firstItem="M4S-0J-JaF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IZD-ir-KwT"/>
+                <constraint firstItem="M4S-0J-JaF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QQN-qb-vah"/>
+                <constraint firstItem="GBM-iR-3EC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Qy2-YC-kWd"/>
+                <constraint firstItem="M4S-0J-JaF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="35" id="eBM-X8-AAZ"/>
+                <constraint firstItem="GBM-iR-3EC" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="v05-nZ-1P1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
+        </view>
+    </objects>
+</document>
