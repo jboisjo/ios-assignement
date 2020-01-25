@@ -27,7 +27,7 @@ struct LoginViewService {
     static let getPlaylistWithId = "playlistItems?part=snippet%2CcontentDetails&maxResults=10"
     static let getVideoId = "videos?part=snippet%2CcontentDetails%2Cstatistics"
     
-    static let apiKey = "AIzaSyDgDd696IAufTQqezRG2Wm-8Ce7HK7FVKU"
+    static let apiKey = ""
     
     
     
