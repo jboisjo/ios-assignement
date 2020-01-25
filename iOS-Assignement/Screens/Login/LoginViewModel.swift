@@ -24,7 +24,7 @@ class LoginViewModel {
     func getUserFromRepository() {
         repositoryManagerDelegate.getRepository(type: Object.self, LoginViewService.baseUrl + LoginViewService.getPlaylistUrl, success: { (response) in
         }) { (error) in
-            print(error as Any)
+            //print(error as Any)
         }
     }
     

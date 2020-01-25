@@ -16,9 +16,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="464" height="123"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ehl-mF-fUr">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ehl-mF-fUr">
                         <rect key="frame" x="20" y="21" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="H5b-ZH-bsb"/>
+                            <constraint firstAttribute="height" constant="80" id="I2O-82-wDO"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEX-YV-BVO">
                         <rect key="frame" x="120" y="55" width="324" height="36"/>
@@ -27,14 +30,21 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G-Eazy " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-lG-BqJ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G-Eazy " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-lG-BqJ">
                         <rect key="frame" x="120" y="21" width="324" height="36"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Ehl-mF-fUr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="6iE-jE-1RC"/>
+                    <constraint firstItem="qI6-lG-BqJ" firstAttribute="leading" secondItem="Ehl-mF-fUr" secondAttribute="trailing" constant="20" id="Djp-Qs-xbf"/>
+                    <constraint firstItem="Ehl-mF-fUr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Idp-MR-EtD"/>
+                    <constraint firstItem="qI6-lG-BqJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="K8b-rq-2Fj"/>
+                    <constraint firstAttribute="bottom" secondItem="qI6-lG-BqJ" secondAttribute="bottom" constant="66" id="T21-Pl-hJT"/>
+                    <constraint firstAttribute="trailing" secondItem="qI6-lG-BqJ" secondAttribute="trailing" constant="20" id="kzb-iY-3yk"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

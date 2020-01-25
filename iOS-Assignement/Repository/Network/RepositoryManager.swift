@@ -34,7 +34,7 @@ class RepositoryManager: RepositoryManagerDelegate {
                 let object = try JSONDecoder().decode(type, from: data)
                 success(object)
             } catch {
-                print(error)
+                //print(error)
                 //failure(error as? NetworkError)
             }
         }) { (error) in

@@ -13,6 +13,8 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
 
     var viewModel: ListViewModel!
     var items: [Items]?
+    var fetchMore = false
+    var nextPageToken: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +27,12 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
     }
     
     func getRepositoryFromVM() {
-        viewModel.getUserFromRepository(success: { (response) in
-                   self.items = response?.items
+        viewModel.getUserFromRepository(success: { [weak self] (response) in
+            self?.nextPageToken = response?.nextPageToken
+            self?.items = response?.items
                    
-                   DispatchQueue.main.async {
-                       self.viewLayout.listTableView.reloadData()
-                   }
-                   
-               }) { (error) in
-                   print(error ?? "")
-               }
+            DispatchQueue.main.async {
+                self?.viewLayout.listTableView.reloadData()}}) { (error) in }
     }
     
     func setupTableView() {
@@ -44,6 +42,39 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
         let nib = UINib(nibName: "ListViewCell", bundle: nil)
         viewLayout.listTableView.register(nib, forCellReuseIdentifier: "cellIdentifier")
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !fetchMore {
+                beganBatchFetch()
+            }
+            
+        }
+    }
+    
+    func beganBatchFetch() {
+        fetchMore = true
+        getRepository()
+    }
+    
+    func getRepository() {
+        if let token = self.nextPageToken {
+            viewModel.getUserFromRepository(nextPageToken: token, success: { [weak self] (response) in
+                    self?.nextPageToken = response?.nextPageToken
+                         if let items = response?.items {
+                            items.forEach( { self?.items?.append($0)})
+                         }
+            
+                    DispatchQueue.main.async {
+                        self?.fetchMore = false
+                        self?.viewLayout.listTableView.reloadData()}}) { (error) in }
+                 }
+        }
+        
+        
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -87,7 +118,7 @@ extension ListViewController: UITableViewDataSource {
         UserDefaults.standard.set(selectedPlaylistTracks, forKey: "selectedPlaylistTracks") //cache for local
         UserDefaults.standard.set(selectedPlaylistImageUrl, forKey: "selectedPlaylistImageUrl") //cache for local
         
+        
         navigationController?.pushViewController(DetailViewController(), animated: true)
     }
-    
 }

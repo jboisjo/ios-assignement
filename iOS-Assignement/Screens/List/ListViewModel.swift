@@ -20,13 +20,22 @@ final class ListViewModel {
     }
     
     //MARK: - Function
-    func getUserFromRepository(success: @escaping (Object?) -> Void,
+    func getUserFromRepository(nextPageToken: String? = nil,
+                               success: @escaping (Object?) -> Void,
                                failure: @escaping (NetworkError?) -> Void) {
-        repositoryManagerDelegate.getRepository(type: Object.self, LoginViewService.baseUrl + LoginViewService.getPlaylistUrl, success: { (response) in
+        
+        var url = ""
+        
+        if let token = nextPageToken {
+            url = LoginViewService.baseUrl + LoginViewService.getPlaylistUrl + "&pageToken=\(token)" + "&key=\(LoginViewService.apiKey)"
+        } else {
+            url = LoginViewService.baseUrl + LoginViewService.getPlaylistUrl + "&key=\(LoginViewService.apiKey)"
+        }
+        
+        repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
             success(response)
-            print(response.items?[0].id)
         }) { (error) in
-            print(error as Any)
+            //print(error as Any)
         }
     }
     

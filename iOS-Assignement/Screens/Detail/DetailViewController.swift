@@ -14,6 +14,8 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     var viewModel: DetailViewModel!
     var items: [Items]?
     var videoItem: [String: Object?]? = [:]
+    var fetchMore = false
+    var nextPageToken: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
         
         viewModel = DetailViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
         viewModel.getUserFromRepository(success: { [weak self] (item) in
+            self?.nextPageToken = item?.nextPageToken
             self?.items = item?.items
             item?.items?.forEach({ [weak self] (items) in
                 if let videoId = items.contentDetails?.videoId {
@@ -82,6 +85,55 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
 
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true  //Show
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !fetchMore {
+                beganBatchFetch()
+            }
+            
+        }
+    }
+    
+    func beganBatchFetch() {
+        fetchMore = true
+        getListOfVideosFromRepository()
+    }
+    
+    func getListOfVideosFromRepository() {
+        viewModel.getUserFromRepository(nextPageToken: self.nextPageToken, success: { [weak self] (response) in
+            self?.nextPageToken = response?.nextPageToken
+            
+            if let item = response?.items {
+                self?.items?.append(contentsOf: item)
+                
+                item.forEach({ [weak self] (items) in
+                    if let videoId = items.contentDetails?.videoId {
+                        self?.viewModel.getVideoDetailFromRepository(videoId: videoId, nextPageToken: self?.nextPageToken, success: { [weak self] (result) in
+                            self?.videoItem?[videoId] = result
+                            
+                            if self?.items?.count == self?.videoItem?.count {
+                                DispatchQueue.main.async {
+                                    self?.viewLayout.tracksTableView.reloadData()
+                                    self?.fetchMore = false
+                                }
+                            }
+                            
+                        }) { (error) in
+                            
+                        }
+                    }
+                    
+                })
+            }
+            
+        }) { (error) in
+            print(error as Any)
+        }
     }
 }
 

@@ -29,7 +29,7 @@ class NetworkManager: NetworkManagerDelegate {
                  failure: @escaping (NetworkError?) -> Void) {
         
         guard let url = URL(string: url) else { return }
-        guard var accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
             failure(NetworkError.forbidden)
             return
         }
@@ -38,8 +38,6 @@ class NetworkManager: NetworkManagerDelegate {
         request.httpMethod = httpMethod.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
-        
-        print(accessToken)
                
         if httpMethod == .POST || httpMethod == .PUT {
             request.httpBody = data
@@ -49,8 +47,6 @@ class NetworkManager: NetworkManagerDelegate {
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
             guard let data = data else { return } //tofix
             
-            print(error.debugDescription)
-            
             switch statusCode {
             case 200..<299:
                 DispatchQueue.main.async { //to update
@@ -58,7 +54,7 @@ class NetworkManager: NetworkManagerDelegate {
                 }
             default:
                 DispatchQueue.main.async { //to update
-                    print(error)
+                    print(error as Any)
                     failure(NetworkError.forbidden)
                 }
             }

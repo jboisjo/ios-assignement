@@ -9,6 +9,7 @@
 import Foundation
 
 struct Playlist: Codable {
+    let nextPageToken: String?
     let pageInfo: Int
     let resultsPerPage: Int
     let items: [Items]

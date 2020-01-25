@@ -10,6 +10,8 @@ import Foundation
 
 struct Object: Codable {
     let items: [Items]?
+    let etag: String?
+    let nextPageToken: String?
 }
 
 struct Items: Codable {
