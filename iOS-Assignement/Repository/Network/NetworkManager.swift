@@ -30,7 +30,7 @@ class NetworkManager: NetworkManagerDelegate {
         
         guard let url = URL(string: url) else { return }
         guard let accessToken = UserDefaults.standard.string(forKey: "accessTokenKey") else {
-            failure(NetworkError.forbidden)
+            print("Unable to access token")
             return
         }
         
@@ -38,10 +38,6 @@ class NetworkManager: NetworkManagerDelegate {
         request.httpMethod = httpMethod.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
-               
-        if httpMethod == .POST || httpMethod == .PUT {
-            request.httpBody = data
-        }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
@@ -55,8 +51,7 @@ class NetworkManager: NetworkManagerDelegate {
             case 403:
                 failure(NetworkError.forbidden)
              default:
-                print(error)
-                failure(NetworkError.forbidden)
+                failure(NetworkError.other)
             }
         }.resume()
         

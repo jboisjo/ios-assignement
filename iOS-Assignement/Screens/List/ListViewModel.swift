@@ -23,24 +23,23 @@ final class ListViewModel {
     func getPlaylistsFromRepository(success: @escaping (Object?) -> Void,
                                     failure: @escaping (NetworkError?) -> Void) {
         
-        let url = NetworkAPI.getPlaylistUrl
-        repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
-            success(response)
-        }) { (error) in
-            failure(error)
-        }
+        repositoryManagerDelegate.getRepository(type: Object.self,
+                                                NetworkAPI.getPlaylistUrl,
+                                                success: { (response) in
+                                                    success(response)
+                                                }) { (error) in
+                                                    failure(error)}
     }
     
     func getNextPlaylistsFromRepository(nextPageToken: String,
                                         success: @escaping (Object?) -> Void,
                                         failure: @escaping (NetworkError?) -> Void) {
         
-        let url = NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)"
-        repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
-            success(response)})
-        { (error) in
-            failure(error)
-        }
+        repositoryManagerDelegate.getRepository(type: Object.self,
+                                                NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)",
+                                                success: { (response) in
+                                                    success(response)
+                                                }) { (error) in
+                                                    failure(error)}
     }
-    
 }

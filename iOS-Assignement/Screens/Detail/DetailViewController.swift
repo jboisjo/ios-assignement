@@ -61,7 +61,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     }
     
     func setNavigationProperties() {
-         self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "1F2124")
+         self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "0a0a0a")
     }
     
     func setupTableView() {

@@ -53,7 +53,7 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
         UINavigationBar.appearance().titleTextAttributes = attrs
         
         self.title = "Home"
-        self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "1F2124")
+        self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "0a0a0a")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.hidesBackButton = true
     }

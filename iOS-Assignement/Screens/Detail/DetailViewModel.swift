@@ -43,12 +43,11 @@ class DetailViewModel {
                                       success: @escaping (Object?) -> Void,
                                       failure: @escaping (NetworkError?) -> Void) {
     
-        let url = NetworkAPI.getVideoId + "&id=\(videoId)"
-   
-        repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
-              success(response)
-          }) { (error) in
-              failure(error)
-          }
+        repositoryManagerDelegate.getRepository(type: Object.self,
+                                                NetworkAPI.getVideoId + "&id=\(videoId)",
+                                                success: { (response) in
+                                                  success(response)
+                                                }) { (error) in
+                                                    failure(error)}
     }
 }
