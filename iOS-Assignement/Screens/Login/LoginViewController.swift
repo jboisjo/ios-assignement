@@ -33,7 +33,7 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
         GIDSignIn.sharedInstance().scopes = scopes
     }
     
-    func setAccessTokenKey(_ value: String) {
+    func setValueForKey(_ value: String) {
         viewModel.setValueForKey(value: value)
     }
     
@@ -44,7 +44,7 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
             showAlert(title: "Authentication Error", message: error.localizedDescription)
             self.service.authorizer = nil
         } else {
-            setAccessTokenKey(user.authentication.accessToken)
+            setValueForKey(user.authentication.accessToken)
             self.navigationController?.pushViewController(ListViewController(), animated: true)
         }
     }

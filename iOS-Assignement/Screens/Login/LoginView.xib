@@ -14,8 +14,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFz-3n-VSf" customClass="GIDSignInButton">
-                    <rect key="frame" x="80" y="404" width="254" height="208"/>
+                    <rect key="frame" x="80" y="404" width="254" height="200"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="gbI-rx-Fkm"/>
+                    </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtube_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ptQ-Gy-6qt">
                     <rect key="frame" x="147" y="234" width="120" height="120"/>
@@ -27,13 +30,12 @@
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="TFz-3n-VSf" secondAttribute="bottom" constant="250" id="6LV-F1-pP2"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TFz-3n-VSf" secondAttribute="trailing" constant="80" id="C4e-mZ-h0C"/>
-                <constraint firstItem="TFz-3n-VSf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="LOR-OO-QOL"/>
-                <constraint firstItem="TFz-3n-VSf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Lvc-fn-Q6O"/>
+                <constraint firstItem="TFz-3n-VSf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="BsI-vA-aCP"/>
+                <constraint firstItem="TFz-3n-VSf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CsL-O0-KXm"/>
                 <constraint firstItem="ptQ-Gy-6qt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="190" id="ML0-Rl-mYc"/>
+                <constraint firstItem="TFz-3n-VSf" firstAttribute="top" secondItem="ptQ-Gy-6qt" secondAttribute="bottom" constant="50" id="U74-W3-hXC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TFz-3n-VSf" secondAttribute="trailing" constant="80" id="YmQ-mQ-EMi"/>
                 <constraint firstItem="ptQ-Gy-6qt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dFN-Mb-lJ1"/>
-                <constraint firstItem="TFz-3n-VSf" firstAttribute="top" secondItem="ptQ-Gy-6qt" secondAttribute="bottom" constant="50" id="qKx-no-OvK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>

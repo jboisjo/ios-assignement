@@ -31,7 +31,8 @@ class LoginUnitTests: XCTestCase {
     }
     
     func testIfUserDefaultHasValue() {
-        loginViewModel.setValueForKey(value: "123")
+        loginViewController.viewDidLoad()
+        loginViewController.setValueForKey("123")
         let value = loginViewModel.getValueFromKey(key: "testKey")
         XCTAssertEqual(value, "123")
     }

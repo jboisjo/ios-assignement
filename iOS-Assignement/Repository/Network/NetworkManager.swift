@@ -34,8 +34,6 @@ class NetworkManager: NetworkManagerDelegate {
             return
         }
         
-        print(url)
-
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
