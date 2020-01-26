@@ -27,9 +27,9 @@ class DetailViewModel {
         var url = ""
  
         if let nextPageToken = nextPageToken {
-            url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&pageToken=\(nextPageToken)" + "&key=\(NetworkAPI.apiKey)"
+            url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&pageToken=\(nextPageToken)"
         } else {
-            url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&key=\(NetworkAPI.apiKey)"
+            url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)"
         }
         
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
@@ -43,7 +43,7 @@ class DetailViewModel {
                                       success: @escaping (Object?) -> Void,
                                       failure: @escaping (NetworkError?) -> Void) {
     
-        let url = NetworkAPI.getVideoId + "&id=\(videoId)" + "&key=\(NetworkAPI.apiKey)"
+        let url = NetworkAPI.getVideoId + "&id=\(videoId)"
    
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
               success(response)

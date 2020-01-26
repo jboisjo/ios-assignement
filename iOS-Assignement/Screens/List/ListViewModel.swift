@@ -23,7 +23,7 @@ final class ListViewModel {
     func getPlaylistsFromRepository(success: @escaping (Object?) -> Void,
                                     failure: @escaping (NetworkError?) -> Void) {
         
-        let url = NetworkAPI.getPlaylistUrl + "&key=\(NetworkAPI.apiKey)"
+        let url = NetworkAPI.getPlaylistUrl
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
             success(response)
         }) { (error) in
@@ -35,7 +35,7 @@ final class ListViewModel {
                                         success: @escaping (Object?) -> Void,
                                         failure: @escaping (NetworkError?) -> Void) {
         
-        let url = NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)" + "&key=\(NetworkAPI.apiKey)"
+        let url = NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)"
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
             success(response)})
         { (error) in
