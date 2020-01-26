@@ -29,11 +29,13 @@ class NetworkManager: NetworkManagerDelegate {
                  failure: @escaping (NetworkError?) -> Void) {
         
         guard let url = URL(string: url) else { return }
-        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessTokenKey") else {
             failure(NetworkError.forbidden)
             return
         }
         
+        print(url)
+
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -55,6 +57,7 @@ class NetworkManager: NetworkManagerDelegate {
             case 403:
                 failure(NetworkError.forbidden)
              default:
+                print(error)
                 failure(NetworkError.forbidden)
             }
         }.resume()

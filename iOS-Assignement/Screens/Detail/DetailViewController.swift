@@ -11,22 +11,40 @@ import UIKit
 
 class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate {
     
+    //MARK: Variables
     var viewModel: DetailViewModel!
     var items: [Items]?
     var videoItem: [String: Object?]? = [:]
+    
     var fetchMore = false
     var nextPageToken: String!
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "1F2124")
+        viewModel = DetailViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
         
-        
+        getTracksFromRepository()
+        setSelectedPlaylistData()
+        setNavigationProperties()
+        setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false  //Hide
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true  //Show
+    }
+    
+    //MARK: - Binding
+    func setSelectedPlaylistData() {
         if let title = UserDefaults.standard.string(forKey: "selectedPlaylistTitle"),
             let tracks = UserDefaults.standard.string(forKey: "selectedPlaylistTracks")  {
             viewLayout.lblTitlePlaylistSelected.text = title
-            viewLayout.lblTitleCount.text = "Number of tracks : \(tracks)"
+            viewLayout.lblTitleCount.text = "Number of tracks : \(tracks)" //this should come from localDB
             
             if let img = UserDefaults.standard.string(forKey: "selectedPlaylistImageUrl"), let imgURL = URL(string: img) {
                 DispatchQueue.global().async {
@@ -40,35 +58,10 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
                 }
             }
         }
-        
-        viewModel = DetailViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
-        viewModel.getUserFromRepository(success: { [weak self] (item) in
-            self?.nextPageToken = item?.nextPageToken
-            self?.items = item?.items
-            item?.items?.forEach({ [weak self] (items) in
-                if let videoId = items.contentDetails?.videoId {
-                    self?.viewModel.getVideoDetailFromRepository(videoId: videoId, success: { [weak self] (result) in
-                        self?.videoItem?[videoId] = result
-                        
-                        if self?.items?.count == self?.videoItem?.count {
-                            DispatchQueue.main.async {
-                                self?.viewLayout.tracksTableView.reloadData()
-                            }
-                        }
-                        
-                    }) { (error) in
-                        
-                    }
-                }
-                
-            })
-            
-            
-        }) { (error) in
-            print(error as Any)
-        }
-        
-        setupTableView()
+    }
+    
+    func setNavigationProperties() {
+         self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "1F2124")
     }
     
     func setupTableView() {
@@ -78,15 +71,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
         let nib = UINib(nibName: "DetailViewTableViewCell", bundle: nil)
         viewLayout.tracksTableView.register(nib, forCellReuseIdentifier: "detailCellIdentifier")
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false  //Hide
-    }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true  //Show
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -104,8 +89,33 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
         getListOfVideosFromRepository()
     }
     
+    func getTracksFromRepository() {
+        viewModel.getTracksFromPlaylist(success: { [weak self] (item) in
+            self?.nextPageToken = item?.nextPageToken
+            self?.items = item?.items
+            item?.items?.forEach({ [weak self] (items) in
+                if let videoId = items.contentDetails?.videoId {
+                    self?.viewModel.getVideoDetailFromRepository(videoId: videoId, success: { [weak self] (result) in
+                        self?.videoItem?[videoId] = result
+                        
+                        if self?.items?.count == self?.videoItem?.count {
+                            DispatchQueue.main.async {
+                                self?.viewLayout.tracksTableView.reloadData()
+                            }
+                        }
+                    }) { (error) in
+    
+                    }
+                }
+            })
+  
+        }) { (error) in
+            print(error as Any)
+        }
+    }
+    
     func getListOfVideosFromRepository() {
-        viewModel.getUserFromRepository(nextPageToken: self.nextPageToken, success: { [weak self] (response) in
+        viewModel.getTracksFromPlaylist(nextPageToken: self.nextPageToken, success: { [weak self] (response) in
             self?.nextPageToken = response?.nextPageToken
             
             if let item = response?.items {
@@ -113,7 +123,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
                 
                 item.forEach({ [weak self] (items) in
                     if let videoId = items.contentDetails?.videoId {
-                        self?.viewModel.getVideoDetailFromRepository(videoId: videoId, nextPageToken: self?.nextPageToken, success: { [weak self] (result) in
+                        self?.viewModel.getVideoDetailFromRepository(videoId: videoId, success: { [weak self] (result) in
                             self?.videoItem?[videoId] = result
                             
                             if self?.items?.count == self?.videoItem?.count {
@@ -122,12 +132,9 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
                                     self?.fetchMore = false
                                 }
                             }
-                            
                         }) { (error) in
-                            
                         }
                     }
-                    
                 })
             }
             
@@ -137,6 +144,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     }
 }
 
+//MARK: - Delegate
 extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items?.count ?? 0
@@ -154,9 +162,12 @@ extension DetailViewController: UITableViewDataSource {
             let item = value.items {
             
             if item.count > 0 {
-                cell.lblTrackNb.text = item[0].snippet?.channelTitle
+                if let title = item[0].snippet?.channelTitle, let duration = item[0].contentDetails?.duration {
+                        cell.lblTrackNb.text = "\(title) • \(duration.formatISO8601())"
+                }
+                
             } else {
-                 cell.lblTrackNb.text = "Unknown"
+                cell.lblTrackNb.text = "Unknown"
             }
             
         } else {
@@ -180,6 +191,4 @@ extension DetailViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

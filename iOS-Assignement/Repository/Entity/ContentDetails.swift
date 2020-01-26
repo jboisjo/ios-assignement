@@ -11,4 +11,5 @@ import Foundation
 struct ContentDetails: Codable {
     let itemCount: Int?
     let videoId: String?
+    let duration: String?
 }

@@ -19,7 +19,6 @@ class DetailView: NibView {
         super.init(frame: frame)
         
         tracksTableView.rowHeight = 100
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

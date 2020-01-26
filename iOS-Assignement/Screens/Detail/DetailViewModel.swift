@@ -18,42 +18,37 @@ class DetailViewModel {
         self.repositoryManagerDelegate = repositoryManagerDelegate
     }
     
-    //MARK: - Function
-    func getUserFromRepository(nextPageToken: String? = nil,
+    //MARK: - Functions
+    func getTracksFromPlaylist(nextPageToken: String? = nil,
                                success: @escaping (Object?) -> Void,
                                failure: @escaping (NetworkError?) -> Void) {
         
         guard let playlistId = UserDefaults.standard.string(forKey: "selectedPlaylistId") else { return }
-        
         var url = ""
-        
+ 
         if let nextPageToken = nextPageToken {
-            url = NetworkAPI.baseUrl + NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&pageToken=\(nextPageToken)" + "&key=\(NetworkAPI.apiKey)"
-            print(url)
+            url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&pageToken=\(nextPageToken)" + "&key=\(NetworkAPI.apiKey)"
         } else {
-            url = NetworkAPI.baseUrl + NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&key=\(NetworkAPI.apiKey)"
-            print(url)
+            url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)" + "&key=\(NetworkAPI.apiKey)"
         }
         
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
             success(response)
         }) { (error) in
-            print(error as Any)
+            failure(error)
         }
     }
     
     func getVideoDetailFromRepository(videoId: String,
-                                      nextPageToken: String? = nil,
                                       success: @escaping (Object?) -> Void,
                                       failure: @escaping (NetworkError?) -> Void) {
-        
-        let url = NetworkAPI.baseUrl + NetworkAPI.getVideoId + "&id=\(videoId)" + "&key=\(NetworkAPI.apiKey)"
-                
+    
+        let url = NetworkAPI.getVideoId + "&id=\(videoId)" + "&key=\(NetworkAPI.apiKey)"
+   
         repositoryManagerDelegate.getRepository(type: Object.self, url, success: { (response) in
               success(response)
           }) { (error) in
-              print(error as Any)
+              failure(error)
           }
     }
-    
 }
