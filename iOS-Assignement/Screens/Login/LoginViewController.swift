@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
     }
     
     func setAccessTokenKey(_ value: String) {
-        viewModel.setAccessTokenKey(value: value)
+        viewModel.setValueForKey(value: value)
     }
     
     //MARK: - GIDSignInDelegate

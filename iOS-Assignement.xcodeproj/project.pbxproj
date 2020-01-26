@@ -11,7 +11,6 @@
 		3491642B23DA5D8C00930411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3491642923DA5D8C00930411 /* Main.storyboard */; };
 		3491642D23DA5D8C00930411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3491642C23DA5D8C00930411 /* Assets.xcassets */; };
 		3491643023DA5D8C00930411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3491642E23DA5D8C00930411 /* LaunchScreen.storyboard */; };
-		3491643B23DA5D8D00930411 /* iOS_AssignementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491643A23DA5D8D00930411 /* iOS_AssignementTests.swift */; };
 		3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491644F23DA5F8000930411 /* LocalAuthentication.framework */; };
 		3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645123DA5F8600930411 /* SafariServices.framework */; };
 		3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3491645323DA5F8D00930411 /* AuthenticationServices.framework */; };
@@ -36,7 +35,6 @@
 		34A184D823DBBC6C00A464DD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184D723DBBC6C00A464DD /* ListViewModel.swift */; };
 		34A184DA23DBBC7400A464DD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184D923DBBC7400A464DD /* ListView.swift */; };
 		34A184DC23DBBC8000A464DD /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184DB23DBBC8000A464DD /* ListView.xib */; };
-		34A184DF23DBBEEE00A464DD /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 34A184DE23DBBEEE00A464DD /* RxTest */; };
 		34A184E623DBC52800A464DD /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184E423DBC52800A464DD /* ListViewCell.swift */; };
 		34A184E723DBC52800A464DD /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184E523DBC52800A464DD /* ListViewCell.xib */; };
 		34A184EA23DBDCE800A464DD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184E923DBDCE800A464DD /* DetailViewController.swift */; };
@@ -47,6 +45,7 @@
 		34A184F423DBEDC600A464DD /* DetailViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A184F223DBEDC600A464DD /* DetailViewTableViewCell.xib */; };
 		34A184F723DCECC600A464DD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184F623DCECC600A464DD /* UIColorExtension.swift */; };
 		34A184FD23DD200200A464DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184FC23DD200200A464DD /* StringExtension.swift */; };
+		34A184FF23DD21F200A464DD /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184FE23DD21F200A464DD /* LoginUnitTests.swift */; };
 		8F8ACB40C75624216197C584 /* Pods_iOS_AssignementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */; };
 		C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */; };
 /* End PBXBuildFile section */
@@ -69,7 +68,6 @@
 		3491642F23DA5D8C00930411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3491643123DA5D8C00930411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3491643623DA5D8D00930411 /* iOS-AssignementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-AssignementTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3491643A23DA5D8D00930411 /* iOS_AssignementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_AssignementTests.swift; sourceTree = "<group>"; };
 		3491643C23DA5D8D00930411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3491644F23DA5F8000930411 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		3491645123DA5F8600930411 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -106,6 +104,7 @@
 		34A184F223DBEDC600A464DD /* DetailViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewTableViewCell.xib; sourceTree = "<group>"; };
 		34A184F623DCECC600A464DD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		34A184FC23DD200200A464DD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		34A184FE23DD21F200A464DD /* LoginUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUnitTests.swift; sourceTree = "<group>"; };
 		34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_AssignementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Assignement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		505E91CB56B1AB53CAE215A9 /* Pods-iOS-Assignement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Assignement.release.xcconfig"; path = "Target Support Files/Pods-iOS-Assignement/Pods-iOS-Assignement.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34A184DF23DBBEEE00A464DD /* RxTest in Frameworks */,
 				8F8ACB40C75624216197C584 /* Pods_iOS_AssignementTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +187,7 @@
 		3491643923DA5D8D00930411 /* iOS-AssignementTests */ = {
 			isa = PBXGroup;
 			children = (
-				3491643A23DA5D8D00930411 /* iOS_AssignementTests.swift */,
+				34A184FE23DD21F200A464DD /* LoginUnitTests.swift */,
 				3491643C23DA5D8D00930411 /* Info.plist */,
 			);
 			path = "iOS-AssignementTests";
@@ -374,7 +372,6 @@
 			);
 			name = "iOS-AssignementTests";
 			packageProductDependencies = (
-				34A184DE23DBBEEE00A464DD /* RxTest */,
 			);
 			productName = "iOS-AssignementTests";
 			productReference = 3491643623DA5D8D00930411 /* iOS-AssignementTests.xctest */;
@@ -410,7 +407,6 @@
 			mainGroup = 3491641723DA5D8C00930411;
 			packageReferences = (
 				3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */,
-				34A184DD23DBBEEE00A464DD /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 3491642123DA5D8C00930411 /* Products */;
 			projectDirPath = "";
@@ -565,7 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3491643B23DA5D8D00930411 /* iOS_AssignementTests.swift in Sources */,
+				34A184FF23DD21F200A464DD /* LoginUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,14 +852,6 @@
 				minimumVersion = 0.12.2;
 			};
 		};
-		34A184DD23DBBEEE00A464DD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -871,11 +859,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */;
 			productName = SQLite;
-		};
-		34A184DE23DBBEEE00A464DD /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34A184DD23DBBEEE00A464DD /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

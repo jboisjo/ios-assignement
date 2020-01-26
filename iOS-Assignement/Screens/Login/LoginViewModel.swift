@@ -12,7 +12,7 @@ class LoginViewModel {
     
     //MARK: Variable
     private let userDefault: UserDefaults
-    private let accessTokenKey = "accessTokenKey"
+    var accessTokenKey = "accessTokenKey"
     
     //MARK: Init
     init(userDefault: UserDefaults) {
@@ -20,14 +20,14 @@ class LoginViewModel {
     }
     
     //MARK: - Function
-    func getAccessTokenKey(key: String) -> String {
+    func getValueFromKey(key: String) -> String {
         let value = userDefault.string(forKey: key)
         guard let returnValue = value else { return "" }
         
         return returnValue
     }
     
-    func setAccessTokenKey(value: String) {
+    func setValueForKey(value: String) {
         UserDefaults.standard.set(value, forKey: accessTokenKey)
     }
 }

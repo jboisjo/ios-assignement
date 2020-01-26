@@ -5,10 +5,6 @@
 //  Created by Jérémie Boisjoli on 2020-01-24.
 //  Copyright © 2020 Jérémie Boisjoli. All rights reserved.
 
-//https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&maxResults=10&mine=true&key=AIzaSyDgDd696IAufTQqezRG2Wm-8Ce7HK7FVKU
-//https://www.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&maxResults=25&mine=true&key=[YOUR_API_KEY] HTTP/1.1
-
-
 import Foundation
 import UIKit
 
