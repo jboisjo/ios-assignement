@@ -18,10 +18,6 @@ class LoginUnitTests: XCTestCase {
     override func setUp() {
         loginViewController = LoginViewController()
         loginViewModel = LoginViewModel(userDefault: UserDefaults.init())
-        
-        loginViewModel.accessTokenKey = "testKey"
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
@@ -30,16 +26,15 @@ class LoginUnitTests: XCTestCase {
         userDefault = nil
     }
     
-    func testIfUserDefaultHasValue() {
+    func testLoginVM_IfUserDefaultHasValue() {
         loginViewController.viewDidLoad()
         loginViewController.setValueForKey("123")
         let value = loginViewModel.getValueFromKey(key: "testKey")
         XCTAssertEqual(value, "123")
     }
     
-    func testIfKeyIsNotFound() {
+    func testLoginVM_IfKeyIsNotFound() {
         let value = loginViewModel.getValueFromKey(key: "testKey1")
         XCTAssertEqual(value, "")
     }
-
 }

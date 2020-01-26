@@ -46,6 +46,7 @@
 		34A184F723DCECC600A464DD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184F623DCECC600A464DD /* UIColorExtension.swift */; };
 		34A184FD23DD200200A464DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184FC23DD200200A464DD /* StringExtension.swift */; };
 		34A184FF23DD21F200A464DD /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184FE23DD21F200A464DD /* LoginUnitTests.swift */; };
+		34A1850123DD3B2300A464DD /* ListUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1850023DD3B2300A464DD /* ListUnitTests.swift */; };
 		8F8ACB40C75624216197C584 /* Pods_iOS_AssignementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */; };
 		C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		34A184F623DCECC600A464DD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		34A184FC23DD200200A464DD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		34A184FE23DD21F200A464DD /* LoginUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUnitTests.swift; sourceTree = "<group>"; };
+		34A1850023DD3B2300A464DD /* ListUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUnitTests.swift; sourceTree = "<group>"; };
 		34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_AssignementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Assignement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		505E91CB56B1AB53CAE215A9 /* Pods-iOS-Assignement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Assignement.release.xcconfig"; path = "Target Support Files/Pods-iOS-Assignement/Pods-iOS-Assignement.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				34A184FE23DD21F200A464DD /* LoginUnitTests.swift */,
+				34A1850023DD3B2300A464DD /* ListUnitTests.swift */,
 				3491643C23DA5D8D00930411 /* Info.plist */,
 			);
 			path = "iOS-AssignementTests";
@@ -562,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A184FF23DD21F200A464DD /* LoginUnitTests.swift in Sources */,
+				34A1850123DD3B2300A464DD /* ListUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
