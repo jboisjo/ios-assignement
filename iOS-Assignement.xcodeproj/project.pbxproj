@@ -47,6 +47,13 @@
 		34A184FD23DD200200A464DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184FC23DD200200A464DD /* StringExtension.swift */; };
 		34A184FF23DD21F200A464DD /* LoginUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A184FE23DD21F200A464DD /* LoginUnitTests.swift */; };
 		34A1850123DD3B2300A464DD /* ListUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1850023DD3B2300A464DD /* ListUnitTests.swift */; };
+		34A1851323DE494600A464DD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 34A1851223DE494600A464DD /* RealmSwift */; };
+		34A1851523DE494600A464DD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 34A1851423DE494600A464DD /* Realm */; };
+		34A1851723DE49F900A464DD /* ItemsPlaylistEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1851623DE49F900A464DD /* ItemsPlaylistEntity.swift */; };
+		34A1851B23DE4E8900A464DD /* PlaylistsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1851A23DE4E8900A464DD /* PlaylistsEntity.swift */; };
+		34A1851D23DE507200A464DD /* VideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1851C23DE507200A464DD /* VideoEntity.swift */; };
+		34A1851F23DE512200A464DD /* ItemsVideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1851E23DE512200A464DD /* ItemsVideoEntity.swift */; };
+		34A1852123DE534F00A464DD /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1852023DE534F00A464DD /* Database.swift */; };
 		8F8ACB40C75624216197C584 /* Pods_iOS_AssignementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */; };
 		C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +114,11 @@
 		34A184FC23DD200200A464DD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		34A184FE23DD21F200A464DD /* LoginUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUnitTests.swift; sourceTree = "<group>"; };
 		34A1850023DD3B2300A464DD /* ListUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUnitTests.swift; sourceTree = "<group>"; };
+		34A1851623DE49F900A464DD /* ItemsPlaylistEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsPlaylistEntity.swift; sourceTree = "<group>"; };
+		34A1851A23DE4E8900A464DD /* PlaylistsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsEntity.swift; sourceTree = "<group>"; };
+		34A1851C23DE507200A464DD /* VideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEntity.swift; sourceTree = "<group>"; };
+		34A1851E23DE512200A464DD /* ItemsVideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsVideoEntity.swift; sourceTree = "<group>"; };
+		34A1852023DE534F00A464DD /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_AssignementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Assignement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		505E91CB56B1AB53CAE215A9 /* Pods-iOS-Assignement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Assignement.release.xcconfig"; path = "Target Support Files/Pods-iOS-Assignement/Pods-iOS-Assignement.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,9 +134,11 @@
 			files = (
 				3491645423DA5F8D00930411 /* AuthenticationServices.framework in Frameworks */,
 				3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */,
+				34A1851323DE494600A464DD /* RealmSwift in Frameworks */,
 				3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */,
 				3491647C23DA77D600930411 /* SQLite in Frameworks */,
 				3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */,
+				34A1851523DE494600A464DD /* Realm in Frameworks */,
 				C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +213,7 @@
 		3491644623DA5DC900930411 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				34A1850223DDF4A200A464DD /* Local */,
 				34A184CA23DBB55A00A464DD /* Services */,
 				3491647323DA758000930411 /* Network */,
 				3491644723DA5DD200930411 /* Entity */,
@@ -333,6 +348,26 @@
 			path = DetailViewCell;
 			sourceTree = "<group>";
 		};
+		34A1850223DDF4A200A464DD /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				34A1852023DE534F00A464DD /* Database.swift */,
+				34A1850C23DDF74800A464DD /* Entity */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		34A1850C23DDF74800A464DD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				34A1851623DE49F900A464DD /* ItemsPlaylistEntity.swift */,
+				34A1851A23DE4E8900A464DD /* PlaylistsEntity.swift */,
+				34A1851E23DE512200A464DD /* ItemsVideoEntity.swift */,
+				34A1851C23DE507200A464DD /* VideoEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +389,8 @@
 			name = "iOS-Assignement";
 			packageProductDependencies = (
 				3491647B23DA77D600930411 /* SQLite */,
+				34A1851223DE494600A464DD /* RealmSwift */,
+				34A1851423DE494600A464DD /* Realm */,
 			);
 			productName = "iOS-Assignement";
 			productReference = 3491642023DA5D8C00930411 /* iOS-Assignement.app */;
@@ -410,6 +447,7 @@
 			mainGroup = 3491641723DA5D8C00930411;
 			packageReferences = (
 				3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */,
+				34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 3491642123DA5D8C00930411 /* Products */;
 			projectDirPath = "";
@@ -532,11 +570,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A1851D23DE507200A464DD /* VideoEntity.swift in Sources */,
 				34A184D023DBB83B00A464DD /* ContentDetails.swift in Sources */,
 				34A184EE23DBDD1700A464DD /* DetailView.swift in Sources */,
 				3491647523DA758E00930411 /* RepositoryManager.swift in Sources */,
 				34A184D423DBB8AB00A464DD /* Thumbnails.swift in Sources */,
 				34A184CC23DBB56B00A464DD /* NetworkAPI.swift in Sources */,
+				34A1851B23DE4E8900A464DD /* PlaylistsEntity.swift in Sources */,
 				3491646E23DA698F00930411 /* NibView.swift in Sources */,
 				3491642423DA5D8C00930411 /* AppDelegate.swift in Sources */,
 				3491646B23DA696800930411 /* LoginViewModel.swift in Sources */,
@@ -549,11 +589,14 @@
 				34A184CE23DBB78100A464DD /* Items.swift in Sources */,
 				34A184DA23DBBC7400A464DD /* ListView.swift in Sources */,
 				34A184E623DBC52800A464DD /* ListViewCell.swift in Sources */,
+				34A1851F23DE512200A464DD /* ItemsVideoEntity.swift in Sources */,
 				34A184D223DBB86400A464DD /* Snippet.swift in Sources */,
 				34A184F723DCECC600A464DD /* UIColorExtension.swift in Sources */,
+				34A1851723DE49F900A464DD /* ItemsPlaylistEntity.swift in Sources */,
 				3491648123DA811D00930411 /* URLSessionExtension.swift in Sources */,
 				34A184D823DBBC6C00A464DD /* ListViewModel.swift in Sources */,
 				34A184D623DBBC6200A464DD /* ListViewController.swift in Sources */,
+				34A1852123DE534F00A464DD /* Database.swift in Sources */,
 				3491646423DA66DF00930411 /* BaseViewController.swift in Sources */,
 				34A184FD23DD200200A464DD /* StringExtension.swift in Sources */,
 				3491647E23DA7FB600930411 /* NetworkError.swift in Sources */,
@@ -856,6 +899,14 @@
 				minimumVersion = 0.12.2;
 			};
 		};
+		34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -863,6 +914,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */;
 			productName = SQLite;
+		};
+		34A1851223DE494600A464DD /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		34A1851423DE494600A464DD /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -14,7 +14,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     //MARK: Variables
     var viewModel: DetailViewModel!
     var items: [Items]?
-    var videoItem: [String: Object?]? = [:]
+    var videoItem: [String: ObjectPlaylist?]? = [:]
     
     var fetchMore = false
     var nextPageToken: String!

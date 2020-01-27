@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
 
 final class ListViewModel {
     
-    //MARK: Variable
+    //MARK: Variables
     let repositoryManagerDelegate: RepositoryManagerDelegate
     
     //MARK: - Init
@@ -20,10 +21,10 @@ final class ListViewModel {
     }
     
     //MARK: - Function
-    func getPlaylistsFromRepository(success: @escaping (Object?) -> Void,
+    func getPlaylistsFromRepository(success: @escaping (ObjectPlaylist?) -> Void,
                                     failure: @escaping (NetworkError?) -> Void) {
         
-        repositoryManagerDelegate.getRepository(type: Object.self,
+        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
                                                 NetworkAPI.getPlaylistUrl,
                                                 success: { (response) in
                                                     success(response)
@@ -32,14 +33,33 @@ final class ListViewModel {
     }
     
     func getNextPlaylistsFromRepository(nextPageToken: String,
-                                        success: @escaping (Object?) -> Void,
+                                        success: @escaping (ObjectPlaylist?) -> Void,
                                         failure: @escaping (NetworkError?) -> Void) {
         
-        repositoryManagerDelegate.getRepository(type: Object.self,
+        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
                                                 NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)",
                                                 success: { (response) in
                                                     success(response)
                                                 }) { (error) in
                                                     failure(error)}
+    }
+    
+    func saveDataInDatabase(playlist: ObjectPlaylist?) {
+        let itemsPlaylistEntity = ItemsPlaylistEntity()
+        
+        playlist?.items?.forEach({ (items) in
+            let playlistEntity = PlaylistsEntity()
+            playlistEntity.id = items.id
+            playlistEntity.channelTitle = items.snippet?.channelTitle
+            playlistEntity.title = items.snippet?.title
+            playlistEntity.url = items.snippet?.thumbnails?.standard?.url
+            playlistEntity.itemCount = items.contentDetails?.itemCount ?? 0
+            itemsPlaylistEntity.playlists.append(playlistEntity)
+        })
+  
+        itemsPlaylistEntity.etag = playlist?.etag
+        itemsPlaylistEntity.nextPageToken = playlist?.nextPageToken
+        
+        Database().save(itemsPlaylistEntity)
     }
 }

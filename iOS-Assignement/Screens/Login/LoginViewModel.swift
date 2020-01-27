@@ -10,7 +10,7 @@ import Foundation
 
 class LoginViewModel {
     
-    //MARK: Variable
+    //MARK: Variables
     private let userDefault: UserDefaults
     var accessTokenKey = "accessTokenKey"
     

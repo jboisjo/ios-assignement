@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Object: Codable {
+struct ObjectPlaylist: Codable {
     let items: [Items]?
     let etag: String?
     let nextPageToken: String?

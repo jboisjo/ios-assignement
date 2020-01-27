@@ -9,6 +9,7 @@
 import GoogleSignIn
 import GoogleAPIClientForREST
 import UIKit
+import RealmSwift
 
 class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GIDSignInUIDelegate {
 
@@ -20,6 +21,8 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         viewModel = LoginViewModel(userDefault: UserDefaults.standard)
         setupGoogleSDK()

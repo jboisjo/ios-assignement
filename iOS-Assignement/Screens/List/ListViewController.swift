@@ -11,7 +11,7 @@ import UIKit
 
 class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
 
-    //MARK: Variable
+    //MARK: Variables
     var viewModel: ListViewModel!
     var items: [Items]?
     var fetchMore = false
@@ -63,6 +63,8 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
         viewModel.getPlaylistsFromRepository(success: { [weak self] (response) in
             self?.nextPageToken = response?.nextPageToken
             self?.items = response?.items
+            self?.viewModel.saveDataInDatabase(playlist: response)
+            print("JAY")
                    
             DispatchQueue.main.async {
                 self?.viewLayout.listTableView.reloadData()
@@ -151,6 +153,7 @@ extension ListViewController: UITableViewDataSource {
         UserDefaults.standard.set(selectedPlaylistTitle, forKey: "selectedPlaylistTitle") //cache for local
         UserDefaults.standard.set(selectedPlaylistTracks, forKey: "selectedPlaylistTracks") //cache for local
         UserDefaults.standard.set(selectedPlaylistImageUrl, forKey: "selectedPlaylistImageUrl") //cache for local
+
         
         navigationController?.pushViewController(DetailViewController(), animated: true)
     }
