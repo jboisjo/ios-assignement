@@ -63,8 +63,6 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
         viewModel.getPlaylistsFromRepository(success: { [weak self] (response) in
             self?.nextPageToken = response?.nextPageToken
             self?.items = response?.items
-            self?.viewModel.saveDataInDatabase(playlist: response)
-            print("JAY")
                    
             DispatchQueue.main.async {
                 self?.viewLayout.listTableView.reloadData()

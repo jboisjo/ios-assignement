@@ -29,7 +29,7 @@ class NetworkManager: NetworkManagerDelegate {
                  failure: @escaping (NetworkError?) -> Void) {
         
         guard let url = URL(string: url) else { return }
-        guard let accessToken = UserDefaults.standard.string(forKey: "accessTokenKey") else {
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessTokenKey") else { //this should be in the Keychain
             print("Unable to access token")
             return
         }

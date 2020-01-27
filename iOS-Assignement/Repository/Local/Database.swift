@@ -32,6 +32,18 @@ public class Database {
         }
     }
     
+    func update<T: Object>(_ object: T) {
+        do {
+            try realm?.write {
+                // finds an existing copy of the object (with the same primary key), and update it. Otherwise, the object will be added.
+                realm?.add(object, update: .modified)
+                
+            }
+        } catch {
+            print("Error saving realm object: \(object.self) with error: \(error)")
+        }
+    }
+    
     func getAll<T: Object>(_ object: T.Type) -> Results<T>? {
         return realm?.objects(T.self)
     }

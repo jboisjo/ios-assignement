@@ -15,4 +15,9 @@ class PlaylistsEntity: Object {
     @objc dynamic var channelTitle: String?
     @objc dynamic var url: String?
     @objc dynamic var itemCount: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+  
 }

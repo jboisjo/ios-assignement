@@ -10,6 +10,11 @@ import Foundation
 import RealmSwift
 
 class ItemsVideoEntity: Object {
+    @objc dynamic var playlistId: String?
     @objc dynamic var nextPageToken: String?
     var playlists = List<VideoEntity>()
+    
+    override static func primaryKey() -> String? {
+        return "nextPageToken"
+    }
 }

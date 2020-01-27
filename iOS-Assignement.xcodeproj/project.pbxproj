@@ -361,8 +361,8 @@
 			isa = PBXGroup;
 			children = (
 				34A1851623DE49F900A464DD /* ItemsPlaylistEntity.swift */,
-				34A1851A23DE4E8900A464DD /* PlaylistsEntity.swift */,
 				34A1851E23DE512200A464DD /* ItemsVideoEntity.swift */,
+				34A1851A23DE4E8900A464DD /* PlaylistsEntity.swift */,
 				34A1851C23DE507200A464DD /* VideoEntity.swift */,
 			);
 			path = Entity;

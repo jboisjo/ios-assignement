@@ -26,7 +26,8 @@ final class ListViewModel {
         
         repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
                                                 NetworkAPI.getPlaylistUrl,
-                                                success: { (response) in
+                                                success: { [weak self] (response) in
+                                                    self?.saveDataInDatabase(playlist: response)
                                                     success(response)
                                                 }) { (error) in
                                                     failure(error)}
@@ -38,7 +39,8 @@ final class ListViewModel {
         
         repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
                                                 NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)",
-                                                success: { (response) in
+                                                success: { [weak self] (response) in
+                                                    self?.saveDataInDatabase(playlist: response)
                                                     success(response)
                                                 }) { (error) in
                                                     failure(error)}
@@ -60,6 +62,6 @@ final class ListViewModel {
         itemsPlaylistEntity.etag = playlist?.etag
         itemsPlaylistEntity.nextPageToken = playlist?.nextPageToken
         
-        Database().save(itemsPlaylistEntity)
+        Database().update(itemsPlaylistEntity)
     }
 }

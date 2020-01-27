@@ -32,9 +32,9 @@ class DetailViewModel {
             url = NetworkAPI.getPlaylistWithId + "&playlistId=\(playlistId)"
         }
         
-        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self, url, success: { (response) in
+        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self, url, success: { [weak self] (response) in
             success(response)
-            response.items
+            self?.saveDataInDatabase(playlist: response)
         }) { (error) in
             failure(error)
         }
@@ -46,11 +46,48 @@ class DetailViewModel {
     
         repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
                                                 NetworkAPI.getVideoId + "&id=\(videoId)",
-                                                success: { (response) in
+                                                success: { [weak self] (response) in
+                                                    self?.updateDataInDatabase(playlist: response, videoId: videoId)
                                                   success(response)
                                                 }) { (error) in
                                                     failure(error)}
     }
     
+    func saveDataInDatabase(playlist: ObjectPlaylist?) {
+        let itemsVideoEntity = ItemsVideoEntity()
+          
+        playlist?.items?.forEach({ (items) in
+            let videoEntity = VideoEntity()
+            videoEntity.id = items.id
+            videoEntity.channelTitle = items.snippet?.channelTitle
+            videoEntity.title = items.snippet?.title
+            videoEntity.url = items.snippet?.thumbnails?.standard?.url
+            videoEntity.duration = items.contentDetails?.duration
+            videoEntity.videoId = items.contentDetails?.videoId
+            itemsVideoEntity.playlists.append(videoEntity)
+          })
     
+        if let playlistId = UserDefaults.standard.string(forKey: "selectedPlaylistId") {
+            itemsVideoEntity.playlistId = playlistId
+        }
+        
+        itemsVideoEntity.nextPageToken = playlist?.nextPageToken
+          
+        Database().update(itemsVideoEntity)
+    }
+    
+    func updateDataInDatabase(playlist: ObjectPlaylist?, videoId: String) {
+        let value = Database().realm?.objects(VideoEntity.self).filter("videoId = %@", videoId).first
+        if let result = playlist?.items?.first(where: { $0.id == value?.videoId }), let videoEntity = value {
+            
+            do {
+                try Database().realm?.write {
+                    videoEntity.duration = result.contentDetails?.duration
+                }
+            } catch {
+                print("Unable to update values in the database")
+            }
+            
+        }
+    }
 }

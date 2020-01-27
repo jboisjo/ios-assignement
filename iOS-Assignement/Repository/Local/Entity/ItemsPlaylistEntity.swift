@@ -13,5 +13,9 @@ class ItemsPlaylistEntity: Object {
     @objc dynamic var nextPageToken: String?
     @objc dynamic var etag: String?
     let playlists = List<PlaylistsEntity>()
+    
+    override static func primaryKey() -> String? {
+        return "etag"
+    }
 }
 

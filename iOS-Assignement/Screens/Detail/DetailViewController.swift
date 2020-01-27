@@ -93,6 +93,7 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
         viewModel.getTracksFromPlaylist(success: { [weak self] (item) in
             self?.nextPageToken = item?.nextPageToken
             self?.items = item?.items
+            
             item?.items?.forEach({ [weak self] (items) in
                 if let videoId = items.contentDetails?.videoId {
                     self?.viewModel.getVideoDetailFromRepository(videoId: videoId, success: { [weak self] (result) in
@@ -117,7 +118,6 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     func getListOfVideosFromRepository() {
         viewModel.getTracksFromPlaylist(nextPageToken: self.nextPageToken, success: { [weak self] (response) in
             self?.nextPageToken = response?.nextPageToken
-            
             if let item = response?.items {
                 self?.items?.append(contentsOf: item)
                 
