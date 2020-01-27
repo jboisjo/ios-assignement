@@ -28,7 +28,7 @@ class LoginUnitTests: XCTestCase {
     
     func testLoginVM_IfUserDefaultHasValue() {
         loginViewController.viewDidLoad()
-        loginViewController.setValueForKey("123")
+        loginViewController.setAccessTokenLocal("123", key: "testKey")
         let value = loginViewModel.getValueFromKey(key: "testKey")
         XCTAssertEqual(value, "123")
     }
@@ -36,5 +36,9 @@ class LoginUnitTests: XCTestCase {
     func testLoginVM_IfKeyIsNotFound() {
         let value = loginViewModel.getValueFromKey(key: "testKey1")
         XCTAssertEqual(value, "")
+    }
+    
+    func testBaseVC_AlertViewNotNil() {
+        XCTAssertNotNil(loginViewController.showAlert(title: "Title", message: "Alert"))
     }
 }

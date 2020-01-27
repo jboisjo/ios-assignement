@@ -12,10 +12,13 @@ class DetailViewModel {
     
     //MARK: Variables
     let repositoryManagerDelegate: RepositoryManagerDelegate
+    let database: Database
     
     //MARK: Init
-    init(repositoryManagerDelegate: RepositoryManagerDelegate) {
+    init(repositoryManagerDelegate: RepositoryManagerDelegate,
+         database: Database) {
         self.repositoryManagerDelegate = repositoryManagerDelegate
+        self.database = database
     }
     
     //MARK: - Functions
@@ -44,13 +47,11 @@ class DetailViewModel {
                                       success: @escaping (ObjectPlaylist?) -> Void,
                                       failure: @escaping (NetworkError?) -> Void) {
     
-        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
-                                                NetworkAPI.getVideoId + "&id=\(videoId)",
-                                                success: { [weak self] (response) in
-                                                    self?.updateDataInDatabase(playlist: response, videoId: videoId)
-                                                  success(response)
-                                                }) { (error) in
-                                                    failure(error)}
+        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self, NetworkAPI.getVideoId + "&id=\(videoId)",
+            success: { [weak self] (response) in
+                        self?.updateDataInDatabase(playlist: response, videoId: videoId)
+                        success(response)
+            }) { (error) in failure(error)}
     }
     
     func saveDataInDatabase(playlist: ObjectPlaylist?) {
@@ -73,15 +74,15 @@ class DetailViewModel {
         
         itemsVideoEntity.nextPageToken = playlist?.nextPageToken
           
-        Database().update(itemsVideoEntity)
+        self.database.update(itemsVideoEntity)
     }
     
     func updateDataInDatabase(playlist: ObjectPlaylist?, videoId: String) {
-        let value = Database().realm?.objects(VideoEntity.self).filter("videoId = %@", videoId).first
+        let value = self.database.realm?.objects(VideoEntity.self).filter("videoId = %@", videoId).first
         if let result = playlist?.items?.first(where: { $0.id == value?.videoId }), let videoEntity = value {
             
             do {
-                try Database().realm?.write {
+                try self.database.realm?.write {
                     videoEntity.duration = result.contentDetails?.duration
                 }
             } catch {

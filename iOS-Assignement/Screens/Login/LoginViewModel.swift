@@ -27,7 +27,7 @@ class LoginViewModel {
         return returnValue
     }
     
-    func setValueForKey(value: String) {
-        UserDefaults.standard.set(value, forKey: accessTokenKey)
+    func setAccessTokenLocal(value: String, key: String) {
+        UserDefaults.standard.set(value, forKey: key)
     }
 }

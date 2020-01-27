@@ -23,7 +23,8 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = DetailViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
+        viewModel = DetailViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()),
+                                    database: Database())
         
         getTracksFromRepository()
         setSelectedPlaylistData()
@@ -37,6 +38,19 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
 
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true  //Show
+    }
+    
+    //MARK: - NavigationBar
+    func setNavigationProperties() {
+         self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "0a0a0a")
+    }
+    
+    func setupTableView() {
+        viewLayout.tracksTableView.delegate = self
+        viewLayout.tracksTableView.dataSource = self
+        
+        let nib = UINib(nibName: "DetailViewTableViewCell", bundle: nil)
+        viewLayout.tracksTableView.register(nib, forCellReuseIdentifier: "detailCellIdentifier")
     }
     
     //MARK: - Binding
@@ -58,18 +72,6 @@ class DetailViewController: BaseViewController<DetailView>, UITableViewDelegate 
                 }
             }
         }
-    }
-    
-    func setNavigationProperties() {
-         self.navigationController?.navigationBar.barTintColor = UIColor.hexStringToUIColor(hex: "0a0a0a")
-    }
-    
-    func setupTableView() {
-        viewLayout.tracksTableView.delegate = self
-        viewLayout.tracksTableView.dataSource = self
-        
-        let nib = UINib(nibName: "DetailViewTableViewCell", bundle: nil)
-        viewLayout.tracksTableView.register(nib, forCellReuseIdentifier: "detailCellIdentifier")
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

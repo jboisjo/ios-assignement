@@ -14,36 +14,33 @@ final class ListViewModel {
     
     //MARK: Variables
     let repositoryManagerDelegate: RepositoryManagerDelegate
+    let database: Database
     
     //MARK: - Init
-    init(repositoryManagerDelegate: RepositoryManagerDelegate) {
+    init(repositoryManagerDelegate: RepositoryManagerDelegate, database: Database) {
         self.repositoryManagerDelegate = repositoryManagerDelegate
+        self.database = database
     }
     
     //MARK: - Function
     func getPlaylistsFromRepository(success: @escaping (ObjectPlaylist?) -> Void,
                                     failure: @escaping (NetworkError?) -> Void) {
         
-        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
-                                                NetworkAPI.getPlaylistUrl,
-                                                success: { [weak self] (response) in
-                                                    self?.saveDataInDatabase(playlist: response)
-                                                    success(response)
-                                                }) { (error) in
-                                                    failure(error)}
+        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self, NetworkAPI.getPlaylistUrl, success: { [weak self] (response) in
+            self?.saveDataInDatabase(playlist: response)
+            success(response)
+            }) { (error) in failure(error)}
     }
     
     func getNextPlaylistsFromRepository(nextPageToken: String,
                                         success: @escaping (ObjectPlaylist?) -> Void,
                                         failure: @escaping (NetworkError?) -> Void) {
         
-        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self,
-                                                NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)",
-                                                success: { [weak self] (response) in
-                                                    self?.saveDataInDatabase(playlist: response)
-                                                    success(response)
-                                                }) { (error) in
-                                                    failure(error)}
+        repositoryManagerDelegate.getRepository(type: ObjectPlaylist.self, NetworkAPI.getPlaylistUrl + "&pageToken=\(nextPageToken)",
+            success: { [weak self] (response) in
+                        self?.saveDataInDatabase(playlist: response)
+                        success(response)
+            }) { (error) in failure(error)}
     }
     
     func saveDataInDatabase(playlist: ObjectPlaylist?) {
@@ -62,6 +59,6 @@ final class ListViewModel {
         itemsPlaylistEntity.etag = playlist?.etag
         itemsPlaylistEntity.nextPageToken = playlist?.nextPageToken
         
-        Database().update(itemsPlaylistEntity)
+        self.database.update(itemsPlaylistEntity)
     }
 }

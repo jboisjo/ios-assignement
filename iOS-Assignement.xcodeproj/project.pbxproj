@@ -22,7 +22,6 @@
 		3491646E23DA698F00930411 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491646D23DA698F00930411 /* NibView.swift */; };
 		3491647223DA756B00930411 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647123DA756B00930411 /* NetworkManager.swift */; };
 		3491647523DA758E00930411 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647423DA758E00930411 /* RepositoryManager.swift */; };
-		3491647C23DA77D600930411 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 3491647B23DA77D600930411 /* SQLite */; };
 		3491647E23DA7FB600930411 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491647D23DA7FB600930411 /* NetworkError.swift */; };
 		3491648123DA811D00930411 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491648023DA811D00930411 /* URLSessionExtension.swift */; };
 		3491648523DA88B300930411 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3491648423DA88B300930411 /* LoginView.xib */; };
@@ -54,6 +53,7 @@
 		34A1851D23DE507200A464DD /* VideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1851C23DE507200A464DD /* VideoEntity.swift */; };
 		34A1851F23DE512200A464DD /* ItemsVideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1851E23DE512200A464DD /* ItemsVideoEntity.swift */; };
 		34A1852123DE534F00A464DD /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1852023DE534F00A464DD /* Database.swift */; };
+		34A1852523DE962000A464DD /* DetailUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1852423DE962000A464DD /* DetailUnitTests.swift */; };
 		8F8ACB40C75624216197C584 /* Pods_iOS_AssignementTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */; };
 		C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +119,7 @@
 		34A1851C23DE507200A464DD /* VideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEntity.swift; sourceTree = "<group>"; };
 		34A1851E23DE512200A464DD /* ItemsVideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsVideoEntity.swift; sourceTree = "<group>"; };
 		34A1852023DE534F00A464DD /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		34A1852423DE962000A464DD /* DetailUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUnitTests.swift; sourceTree = "<group>"; };
 		34B69055EB52E348D89C95A5 /* Pods_iOS_AssignementTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_AssignementTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA9862B6E1D7EE2728D8408 /* Pods_iOS_Assignement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Assignement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		505E91CB56B1AB53CAE215A9 /* Pods-iOS-Assignement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Assignement.release.xcconfig"; path = "Target Support Files/Pods-iOS-Assignement/Pods-iOS-Assignement.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 				3491645623DA5F9500930411 /* SystemConfiguration.framework in Frameworks */,
 				34A1851323DE494600A464DD /* RealmSwift in Frameworks */,
 				3491645023DA5F8000930411 /* LocalAuthentication.framework in Frameworks */,
-				3491647C23DA77D600930411 /* SQLite in Frameworks */,
 				3491645223DA5F8600930411 /* SafariServices.framework in Frameworks */,
 				34A1851523DE494600A464DD /* Realm in Frameworks */,
 				C814DF64DB818DE1CB40ABA8 /* Pods_iOS_Assignement.framework in Frameworks */,
@@ -205,6 +205,7 @@
 			children = (
 				34A184FE23DD21F200A464DD /* LoginUnitTests.swift */,
 				34A1850023DD3B2300A464DD /* ListUnitTests.swift */,
+				34A1852423DE962000A464DD /* DetailUnitTests.swift */,
 				3491643C23DA5D8D00930411 /* Info.plist */,
 			);
 			path = "iOS-AssignementTests";
@@ -388,7 +389,6 @@
 			);
 			name = "iOS-Assignement";
 			packageProductDependencies = (
-				3491647B23DA77D600930411 /* SQLite */,
 				34A1851223DE494600A464DD /* RealmSwift */,
 				34A1851423DE494600A464DD /* Realm */,
 			);
@@ -446,7 +446,6 @@
 			);
 			mainGroup = 3491641723DA5D8C00930411;
 			packageReferences = (
-				3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */,
 				34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 3491642123DA5D8C00930411 /* Products */;
@@ -608,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A184FF23DD21F200A464DD /* LoginUnitTests.swift in Sources */,
+				34A1852523DE962000A464DD /* DetailUnitTests.swift in Sources */,
 				34A1850123DD3B2300A464DD /* ListUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -891,14 +891,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.12.2;
-			};
-		};
 		34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
@@ -910,11 +902,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3491647B23DA77D600930411 /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3491647A23DA77D600930411 /* XCRemoteSwiftPackageReference "SQLite" */;
-			productName = SQLite;
-		};
 		34A1851223DE494600A464DD /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 34A1851123DE494600A464DD /* XCRemoteSwiftPackageReference "realm-cocoa" */;

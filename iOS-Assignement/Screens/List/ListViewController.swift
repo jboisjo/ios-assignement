@@ -21,7 +21,8 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = ListViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()))
+        viewModel = ListViewModel(repositoryManagerDelegate: RepositoryManager(networkManagerDelegate: NetworkManager()),
+                                  database: Database())
   
         setupTableView()
         getPlaylistsFromRepository()
@@ -36,7 +37,7 @@ class ListViewController: BaseViewController<ListView>, UITableViewDelegate {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    //MARK: - Functions
+    //MARK: - NavigationBar
     func setupTableView() {
         viewLayout.listTableView.delegate = self
         viewLayout.listTableView.dataSource = self
@@ -151,7 +152,6 @@ extension ListViewController: UITableViewDataSource {
         UserDefaults.standard.set(selectedPlaylistTitle, forKey: "selectedPlaylistTitle") //cache for local
         UserDefaults.standard.set(selectedPlaylistTracks, forKey: "selectedPlaylistTracks") //cache for local
         UserDefaults.standard.set(selectedPlaylistImageUrl, forKey: "selectedPlaylistImageUrl") //cache for local
-
         
         navigationController?.pushViewController(DetailViewController(), animated: true)
     }

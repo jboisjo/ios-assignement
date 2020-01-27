@@ -9,7 +9,6 @@
 import GoogleSignIn
 import GoogleAPIClientForREST
 import UIKit
-import RealmSwift
 
 class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GIDSignInUIDelegate {
 
@@ -21,8 +20,6 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         viewModel = LoginViewModel(userDefault: UserDefaults.standard)
         setupGoogleSDK()
@@ -36,8 +33,8 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
         GIDSignIn.sharedInstance().scopes = scopes
     }
     
-    func setValueForKey(_ value: String) {
-        viewModel.setValueForKey(value: value)
+    func setAccessTokenLocal(_ value: String, key: String) {
+        viewModel.setAccessTokenLocal(value: value, key: key)
     }
     
     //MARK: - GIDSignInDelegate
@@ -47,7 +44,7 @@ class LoginViewController: BaseViewController<LoginView>, GIDSignInDelegate, GID
             showAlert(title: "Authentication Error", message: error.localizedDescription)
             self.service.authorizer = nil
         } else {
-            setValueForKey(user.authentication.accessToken)
+            setAccessTokenLocal(user.authentication.accessToken, key: viewModel.accessTokenKey)
             self.navigationController?.pushViewController(ListViewController(), animated: true)
         }
     }
